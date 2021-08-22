@@ -18,46 +18,67 @@
     />
     <link rel="stylesheet" href="{%static 'health/fonts/icomoon/style.css' %}">
     <link rel="stylesheet" href="{%static 'health/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{%static 'health/css/style.css' %}">
-    <link rel="stylesheet" href="{%static 'health/css/bootstrap/style.css' %}" />
-<!--    <link rel="stylesheet" href="css/responsive-style.css" />-->
+    <!-- Bootstrap CSS -->
+    
+
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{%static 'health/css/web.css' %}">
+    
+    <!-- <script src="js/main.js"></script> -->
+
   </head>
-
-
   <body>
-    <header>
-      <!-- NAVBAR -->
-      <nav>
-        <div class="logo">AIM2CARE</div>
-        <ul>
-          <i class="fa fa-map-marker-alt fa-1x"></i></span><i style="color: white; font-weight: 400;font-size: 1.2rem;; font-family: 'roboto';">No location</i><span><i class="fa fa-caret-down fa-1x"></i></span>
 
-          <li><a href="#">Home</a></li>
-          <li>
-            <label for="btn-1" class="show">Features +</label>
-            <a href="#">Features</a>
-            <input type="checkbox" id="btn-1">
-            <ul>
-              <li><a  href="#">About Us</a></li>
-              <li><a  href="#">Contact Us</a></li>
-              <li><a  href="#">FAQ</a></li>
-              <li><a  href="#">Testimonials</a></li>
-            </ul>
-          </li>
-          <li>
-            <label for="btn-2" class="show">Services +</label>
-            <a href="#">Services</a>
-            <input type="checkbox" id="btn-2">
-            <ul>
-              <li><a  href="#">Appointment</a></li>
-              <li><a  href="#">Emergency</a></li>
-              <li><a  href="#">Lab Tests</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Sign Up</a></li>
-          <li><a href="#">Login</a></li>
-        </ul>
-      </nav>
+    <!-- NAVBAR -->
+  
+    
+    <header class="site-navbar"  style="background-color: #35477d;">
+      <div class="container">
+        <div class="row align-items-center">
+          
+          <div class="col-11 col-xl-2">
+            <h1 class="mb-0 site-logo"><a href="" class="text-white mb-0">AIM2CARE</a></h1>
+          </div>
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li class="active"><a href=""><span>Home</span></a></li>
+
+                <li class="has-children">
+                  <a href="about.html"><span>Features</span></a>
+                  <ul class="dropdown arrow-top">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                  </ul>
+                </li>
+
+                  <li class="has-children">
+                  <a href="about.html"><span>Services</span></a>
+                  <ul class="dropdown arrow-top">
+                    <li><a href="#">Appointment</a></li>
+                    <li><a href="#">Emergency</a></li>
+                    <li><a href="#">Lab Tests</a></li>
+                  </ul>
+                </li>
+
+                <li><a href="blog.html"><span>Sign Up</span></a></li>
+                <li><a href="contact.html"><span>Login</span></a></li>
+              </ul>
+            </nav>
+          </div>
+
+
+          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+      
     </header>
 
     {% block body %} {% endblock %}
@@ -107,7 +128,7 @@
         </section>
         <!-- Section: Social media -->
       </div>
-      <div class="text-center p-3" style="background-color: #286FB4;">
+      <div class="text-center p-3" style="background-color: #35477d;">
         © Aim2Care Copyright 2021
       </div>
 

@@ -7,3 +7,4 @@ class Contact(models.Model):
     email = models.CharField(max_length=100)
     category = models.CharField(max_length=50)
     message = models.CharField(max_length=500)
+    phone = models.CharField(max_length=10, default="")

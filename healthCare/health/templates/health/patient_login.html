@@ -1,0 +1,62 @@
+{% extends 'health/basic.html' %}
+{% load static %}
+{% block title %}login{% endblock %}
+<!------ Include the above in your HEAD tag ---------->
+{% block body %}
+<div class="bgimg">
+  <div >
+    <div class="row">
+      <div class="col-sm-4"> </div>
+      <div class="col-md-4">
+        <h1 class="text-center"> LOGIN</h1>
+        <br />
+        <div class="col-sm-12">
+          <ul class="nav nav-pills">
+            <li class="" style="width:50%"><a class="btn btn-lg btn-default" data-toggle="tab" href="#home">Hospital</a>
+            </li>
+            <li class=" " style="width:48%"><a class=" btn btn-lg btn-default" data-toggle="tab"
+                href="#menu1">Patient</a></li>
+          </ul>
+          <br />
+          <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+              <form action="/login" method="post">
+                <div class="form-group">
+                  <label for="Pemail">Email address:</label>
+                  <input type="email" class="form-control" id="Pemail">
+                </div>
+                <div class="form-group">
+                  <label for="Ppwd">Password:</label>
+                  <input type="password" class="form-control" id="Ppwd">
+                </div>
+              </form>
+              <br />
+              <a href="/register" type="submit" style="margin-top: 5%;" class="pull-right btn btn-block btn-danger btn-lg"> Register ?
+              </a>
+            </div>
+            <div id="menu1" class="tab-pane fade">
+              <form action="#">
+                <div class="form-group">
+                  <label for="Demail">Email address:</label>
+                  <input type="email" class="form-control" id="Demail">
+                </div>
+                <div class="form-group">
+                  <label for="Dpwd">Password:</label>
+                  <input type="password" class="form-control" id="Dpwd">
+                </div>
+              </form>
+              <br />
+              <a href="/register" type="submit" style="margin-top: 5%;" class="pull-right btn btn-block btn-danger btn-lg">Login
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--<p>Hii</p>-->
+{% endblock %}

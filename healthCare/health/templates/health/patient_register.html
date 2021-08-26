@@ -1,0 +1,59 @@
+{% extends 'health/basic.html' %}
+{% load static %}
+{% block title %}login{% endblock %}
+<!------ Include the above in your HEAD tag ---------->
+{% block body %}
+<div class="container">
+  <h1>Patient Registration</h1>
+</div>
+<div class="row">
+  <form method="POST">
+    <div class="form-group">
+      <label for="fname">First name:
+        <input type="text" placeholder="Your first name" name="firstName" id="fname">
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="lname">Last name:
+        <input class="form-control" type="text" placeholder="Your last name" name="lastName" id="lname">
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email
+        <input class="form-control" type="email" placeholder="Your email" name="email" id="email">
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Contact:
+        <input class="form-control" type="tel" placeholder="Mobile number" name="phone" id="phone">
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age:
+        <input class="form-control" type="tel" placeholder="Your age">
+      </label>
+    </div>
+
+      <div class="row">
+
+        <div class="col-xs-">
+          <label for="gender">Gender</label>
+        </div>
+
+        <div class="col-xs-6">
+          <input class="form-control" type="radio" value="Male">
+          <input class="form-control" type="radio" value="Female">
+          <input class="form-control" type="radio" value="Transgender">
+        </div>
+
+    </div>
+  </form>
+</div>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock %}

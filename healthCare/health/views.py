@@ -4,7 +4,7 @@ from .models import Contact
 
 # Create your views here.
 def index(request):
-    return HttpResponse("home page")
+    return render(request,'health/index.html')
 
 def contact(request):
     if request.method == 'POST':
@@ -17,11 +17,11 @@ def contact(request):
         contact.save()
     return render(request,'health/contact.html')
 
-def login(request):
-    return render(request, 'health/login.html')
+def patientLogin(request):
+    return render(request, 'health/patient_login.html')
 
-def register(request):
-    return render(request, 'health/register.html')
+def patientRegister(request):
+    return render(request, 'health/patient_register.html')
 
 def otp(request):
     return render(request, 'health/otp.html')

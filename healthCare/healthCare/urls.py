@@ -22,3 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('health.urls'))
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+admin.site.site_header="AIM2CARE"
+admin.site.site_header="AIM2CARE ADMIN PORTAL"
+admin.site.index_title="WELCOME TO AIM2CARE PORTAL"

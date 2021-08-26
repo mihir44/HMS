@@ -52,7 +52,7 @@
 
             <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
               <li class="active"><a href=""><span>Home</span></a></li>
-
+{% comment %} 
               <li class="has-children">
                 <a href="about.html"><span>Features</span></a>
                 <ul class="dropdown arrow-top">
@@ -70,10 +70,16 @@
                   <li><a href="#">Emergency</a></li>
                   <li><a href="#">Lab Tests</a></li>
                 </ul>
-              </li>
+              </li> {% endcomment %}
 
-              <li><a href="blog.html"><span>Sign Up</span></a></li>
-              <li><a href="contact.html"><span>Login</span></a></li>
+              <li><a href="blog.html"><span>About</span></a></li>
+              <li><a href="blog.html"><span>Contact</span></a></li>
+              <li><a href="blog.html"><span>Appointments</span></a></li>
+              <li><a href="blog.html"><span>Lab Tests</span></a></li>
+              <li><a href="blog.html"><span>Emergency</span></a></li>
+
+              
+              <li><a href="contact.html"><span>Sign Up/Login</span></a></li>
             </ul>
           </nav>
         </div>
@@ -88,6 +94,18 @@
     </div>
 
   </header>
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show " role="alert">
+  {{ message }}
+  
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+{% endif %} 
 
   {% block body %} {% endblock %}
 

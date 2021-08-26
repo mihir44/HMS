@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Contact
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -15,6 +16,8 @@ def contact(request):
         category = request.POST.get('category','')
         contact = Contact(name = name, email = email, category = category, message = message, phone = phone)
         contact.save()
+
+        messages.success(request, 'Message Sent! Aim2Care will contact you soon')
     return render(request,'health/contact.html')
 
 def patientLogin(request):

@@ -1,105 +1,100 @@
 {% extends 'health/basic.html' %}
 {% load static %}
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
 
 
 
-    {% block title %}Contact Us{% endblock %}
+{% block title %}Contact Us{% endblock %}
 
 {% block body %}
-  <div class="content">
+<div class="content">
 
-    <div class="container">
-      <div class="row align-items-stretch no-gutters contact-wrap">
-        <div class="col-md-8">
-          <div class="form h-100">
-            <h3>Send Aim2Care a message</h3>
-            <form class="mb-5"  method="post" id="contactForm" name="contactForm">{% csrf_token%}
-              <div class="row">
-                <div class="col-md-6 form-group mb-5">
-                  <label class="col-form-label">Name *</label>
-                  <input type="text" class="form-control" name="name" id="name" placeholder="Your name">
-                </div>
-                <div class="col-md-6 form-group mb-5">
-                  <label class="col-form-label">Email Id *</label>
-                  <input type="text" class="form-control" name="email" id="email"  placeholder="Your email">
-                </div>
+  <div class="container">
+    <div class="row align-items-stretch no-gutters contact-wrap">
+      <div class="col-md-8">
+        <div class="form h-100">
+          <h3>Send Aim2Care a message</h3>
+          <form class="mb-5" method="post" id="contactForm" name="contactForm">{% csrf_token%}
+            <div class="row">
+              <div class="col-md-6 form-group mb-5">
+                <label class="col-form-label">Name <span class="important">*</span></label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Your name">
               </div>
-
-              <div class="row">
-                <div class="col-md-6 form-group mb-5">
-                  <label class="col-form-label">Phone No</label>
-                  <input type="text" class="form-control" name="phone" id="phone"  placeholder="Phone">
-                </div>
-                <div class="col-md-6 form-group mb-5">
-                  <label class="col-form-label">category type</label>
-                  <input type="text" class="form-control" name="category" id="category"  placeholder="category">
-                </div>
+              <div class="col-md-6 form-group mb-5">
+                <label class="col-form-label">Email Id <span class="important"></span>*</span></label>
+                <input type="text" class="form-control" name="email" id="email" placeholder="Your email">
               </div>
-
-              <div class="row">
-                <div class="col-md-12 form-group mb-5">
-                  <label for="message" class="col-form-label">Message *</label>
-                  <textarea class="form-control" name="message" id="message" cols="30" rows="4"  placeholder="Write your message"></textarea>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12 form-group">
-                  <input type="submit" value="Send Message" class="btn btn-primary rounded-0 py-2 px-4">
-                  <span class="submitting"></span>
-                </div>
-              </div>
-            </form>
-
-            <div id="form-message-warning mt-4"></div>
-            <div id="form-message-success">
-              Your message was sent, thank you!
             </div>
 
+            <div class="row">
+              <div class="col-md-6 form-group mb-5">
+                <label class="col-form-label">Phone No<span class="important">*</span></label>
+                <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
+              </div>
+              <div class="col-md-6 form-group mb-5">
+                <label class="col-form-label">category type<span class="important">*</span></label>
+                <input type="text" class="form-control" name="category" id="category" placeholder="category">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 form-group mb-5">
+                <label for="message" class="col-form-label">Message<span class="important">*</span></label>
+                <textarea class="form-control" name="message" id="message" cols="30" rows="4"
+                  placeholder="Write your message"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <input type="submit" value="Send Message" class="btn btn-primary rounded-0 py-2 px-4">
+                <span class="submitting"></span>
+              </div>
+            </div>
+          </form>
+
+          <div id="form-message-warning mt-4"></div>
+          <div id="form-message-success">
+            Your message was sent, thank you!
           </div>
+
         </div>
-        <div class="col-md-4">
-          <div class="contact-info h-100">
-            <h3>Contact Information</h3>
-            <p class="mb-5">For any queries regarding booking an appointment/ lab test or emergency bookings feel free to contact us. Our team will get back to you soon!</p>
-            <ul class="list-unstyled">
-              <li class="d-flex">
-                <span class="wrap-icon icon-room mr-3"></span>
-                <span class="text">#16, Bishop Gardens, S.J Annamalaipuram,Mumbai,Maharashtra- 400028</span>
-              </li>
-              <li class="d-flex">
-                <span class="wrap-icon icon-phone mr-3"></span>
-                <span class="text">+91 40 439934</span>
-              </li>
-              <li class="d-flex">
-                <span class="wrap-icon icon-envelope mr-3"></span>
-                <span class="text">helpdesk@aim2care.com</span>
-              </li>
-            </ul>
-          </div>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-info h-100">
+          <h3>Contact Information</h3>
+          <p class="mb-5">For any queries regarding booking an appointment/ lab test or emergency bookings feel free to
+            contact us. Our team will get back to you soon!</p>
+          <ul class="list-unstyled">
+            <li class="d-flex">
+              <span class="wrap-icon icon-room mr-3"></span>
+              <span class="text">#16, Bishop Gardens, S.J Annamalaipuram,Mumbai,Maharashtra- 400028</span>
+            </li>
+            <li class="d-flex">
+              <span class="wrap-icon icon-phone mr-3"></span>
+              <span class="text">+91 40 439934</span>
+            </li>
+            <li class="d-flex">
+              <span class="wrap-icon icon-envelope mr-3"></span>
+              <span class="text">helpdesk@aim2care.com</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
-
   </div>
 
+</div>
 
-    <link rel="stylesheet" href="{%static 'health/fonts/icomoon/style.css' %}">
 
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{%static 'health/css/bootstrap.min.css' %}">
-
-    <!-- Style -->
-    <link rel="stylesheet" href="{%static 'health/css/style.css' %}">
-    <script src="{%static 'health/js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{%static 'health/js/popper.min.js' %}"></script>
-    <script src="{%static 'health/js/bootstrap.min.js' %}"></script>
-    <script src="{%static 'health/js/jquery.validate.min.js' %}"></script>
-    <!-- <script src="js/main.js"></script> -->
+<!--<script src="{%static 'health/js/jquery-3.3.1.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/popper.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/bootstrap.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/jquery.validate.min.js' %}"></script>-->
+<!-- <script src="js/main.js"></script> -->
 
 {% endblock %}

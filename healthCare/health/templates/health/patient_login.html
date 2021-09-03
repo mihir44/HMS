@@ -1,62 +1,47 @@
 {% extends 'health/basic.html' %}
 {% load static %}
-{% block title %}login{% endblock %}
-<!------ Include the above in your HEAD tag ---------->
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+
+
+{% block title %}Patient Login{% endblock %}
+
 {% block body %}
-<div class="bgimg">
-  <div >
-    <div class="row">
-      <div class="col-sm-4"> </div>
-      <div class="col-md-4">
-        <h1 class="text-center"> LOGIN</h1>
-        <br />
-        <div class="col-sm-12">
-          <ul class="nav nav-pills">
-            <li class="" style="width:50%"><a class="btn btn-lg btn-default" data-toggle="tab" href="#home">Hospital</a>
-            </li>
-            <li class=" " style="width:48%"><a class=" btn btn-lg btn-default" data-toggle="tab"
-                href="#menu1">Patient</a></li>
-          </ul>
-          <br />
-          <div class="tab-content">
-            <div id="home" class="tab-pane fade in active">
-              <form action="/login" method="post">
-                <div class="form-group">
-                  <label for="Pemail">Email address:</label>
-                  <input type="email" class="form-control" id="Pemail">
-                </div>
-                <div class="form-group">
-                  <label for="Ppwd">Password:</label>
-                  <input type="password" class="form-control" id="Ppwd">
-                </div>
-              </form>
-              <br />
-              <a href="/register" type="submit" style="margin-top: 5%;" class="pull-right btn btn-block btn-danger btn-lg"> Register ?
-              </a>
-            </div>
-            <div id="menu1" class="tab-pane fade">
-              <form action="#">
-                <div class="form-group">
-                  <label for="Demail">Email address:</label>
-                  <input type="email" class="form-control" id="Demail">
-                </div>
-                <div class="form-group">
-                  <label for="Dpwd">Password:</label>
-                  <input type="password" class="form-control" id="Dpwd">
-                </div>
-              </form>
-              <br />
-              <a href="/register" type="submit" style="margin-top: 5%;" class="pull-right btn btn-block btn-danger btn-lg">Login
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+
+<div class="register-photo">
+    <div class="header">
+    
     </div>
-  </div>
-</div>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!--<p>Hii</p>-->
+        <div class="form-container">
+            <div class="image-holder">
+			{% comment %} <img src="{%static 'health/images/nursepic.jpg' %}"> {% endcomment %}
+			</div>
+            <form method="post">
+                <h2 class="text-center" style="color: #35477d;font-family: Verdana; font-size:24px;"><strong>Patient Login</strong></h2>
+                <h2 class="text-center" style="color: #35477d;font-family: Verdana; font-size:20px;"><strong>LOG IN</strong></h2>
+                
+                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+                
+                <div class="form-group">
+                    <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
+                </div>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit"><strong>Log In</strong></button>
+                </div>
+                <a href="pregister/" class="already">Create an account? <strong>Sign Up.</strong></a></form>
+        </div>
+    </div>
+
+
+
+<!--<script src="{%static 'health/js/jquery-3.3.1.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/popper.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/bootstrap.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/jquery.validate.min.js' %}"></script>-->
+<!-- <script src="js/main.js"></script> -->
+
 {% endblock %}

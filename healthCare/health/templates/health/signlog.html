@@ -1,0 +1,83 @@
+{% extends 'health/basic.html' %}
+{% load static %}
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+
+
+
+{% block title %}Sign Up{% endblock %}
+
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<div class="weather-card one">
+				
+				<div class="top">
+					<div class="wrapper">
+						<div class="mynav">
+							<a href="#"><span class="lnr lnr-chevron-left"></span></a>
+							<a href="#"><span class="lnr lnr-cog"></span></a>
+						</div>
+						<h1 class="heading">For Hospitals</h1>
+						<h3 class="location">Register / Log In</h3>
+						<p class="temp" style="color: #fff;">
+							<strong>We understand manging multiple phonecalls is difficult. One stop destination for your hospital's daily labs,appointments is here.
+							 Register or signup to connect with patients easily. Book your appointments now!</strong>
+							
+						</p>
+					</div>
+				</div>
+				<div class="bottom">
+					<div class="wrapper">
+						<ul class="forecast">
+							<button class="submit-btn" type="submit" onclick="document.location='hlogin/'">Signup / Login</button>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col">
+			<div class="weather-card rain">
+				<div class="top">
+					<div class="wrapper">
+						<div class="mynav">
+							<a href="#"><span class="lnr lnr-chevron-left"></span></a>
+							<a href="#"><span class="lnr lnr-cog"></span></a>
+						</div>
+						<h1 class="heading">For Patients</h1>
+						<h3 class="location">Register / Log In</h3>
+						<p class="temp" style="color: #fff;">
+							<strong>We understand healthcare is about the deep connection between doctors and
+							patients that leads to continuous care and sustained, better outcomes. Register or signup to connect with your nearest labs and hospitals. Book your appointments now!</strong>
+							
+						</p>
+					</div>
+				</div>
+				<div class="bottom">
+					<div class="wrapper">
+						<ul class="forecast">
+							<button class="submit-btn" type="submit" onclick="document.location='plogin/'">Signup / Login</button>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<!--<script src="{%static 'health/js/jquery-3.3.1.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/popper.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/bootstrap.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/jquery.validate.min.js' %}"></script>-->
+<!-- <script src="js/main.js"></script> -->
+
+{% endblock %}

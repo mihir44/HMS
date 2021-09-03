@@ -26,5 +26,22 @@ def patientLogin(request):
 def patientRegister(request):
     return render(request, 'health/patient_register.html')
 
+
+def hospitalLogin(request):
+    return render(request, 'health/hospital_login.html')
+
+
+def hospitalRegister(request):
+    return render(request, 'health/hospital_register.html')
+
 def otp(request):
     return render(request, 'health/otp.html')
+
+def about(request):
+    return render(request, 'health/about.html')
+
+def signlog(request):
+    return render(request, 'health/signlog.html')
+
+
+    

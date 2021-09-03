@@ -1,10 +1,47 @@
 {% extends 'health/basic.html' %}
 {% load static %}
 
-{% block title %}Hospital register{% endblock %}
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+
+
+{% block title %}Hospital Register{% endblock %}
 
 {% block body %}
 
+<div class="register-photo">
+    <div class="header">
+    
+    </div>
+        <div class="form-container">
+            <div class="image-holder">
+			{% comment %} <img src="{%static 'health/images/nursepic.jpg' %}"> {% endcomment %}
+			</div>
+            <form method="post">
+                <h2 class="text-center" style="color: #35477d;font-family: Verdana; font-size:24px;"><strong>Hospital Registration</strong></h2>
+                <h2 class="text-center" style="color: #35477d;font-family: Verdana; font-size:20px;"><strong>Create an account.</strong></h2>
+                
+                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+                <div class="form-group"><input class="form-control" type="password" name="password-repeat" placeholder="Confirm Password"></div>
+                <div class="form-group">
+                    <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
+                </div>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit"><strong>Sign Up</strong></button>
+                </div>
+                <a href="hlogin/" class="already">Already have an account? <strong>Login here.</strong></a></form>
+        </div>
+    </div>
 
+
+
+<!--<script src="{%static 'health/js/jquery-3.3.1.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/popper.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/bootstrap.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/jquery.validate.min.js' %}"></script>-->
+<!-- <script src="js/main.js"></script> -->
 
 {% endblock %}

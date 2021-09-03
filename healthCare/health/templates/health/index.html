@@ -4,21 +4,21 @@
 
 {% block body %}
 {% load static %}
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height: 50vh;"> 
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
-  <div class="carousel-inner">
+  <div class="carousel-inner" style="height: 50vh;">
     <div class="carousel-item active">
       <img class="d-block w-100 homeBanner" src="{%static 'health/images/doctors_appointment_banner.webp' %}"
         alt="First slide">
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item" style="height: 50vh;">
       <img class="d-block w-100 homeBanner" src="{%static 'health/images/doctors.jpg' %}" alt="Second slide">
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item" style="height: 50vh;">
       <img class="d-block w-100 homeBanner" src="{%static 'health/images/hospital.jpg' %}" alt="Third slide">
     </div>
   </div>
@@ -41,8 +41,8 @@
         <div class="card-body">
           <h5 class="card-title">Hospital</h5>
           <p class="card-text">Register/Login as an hospital to see latest appointments. </p><br>
-          <a href="#" class="btn btn-primary">Register</a>
-          <a href="#" class="btn btn-primary">Login</a>
+          <a href="hregister/" class="btn btn-primary">Register</a>
+          <a href="hlogin/" class="btn btn-primary">Login</a>
         </div>
       </div>
     </div>
@@ -53,8 +53,8 @@
         <div class="card-body">
           <h5 class="card-title">Patient</h5>
           <p class="card-text">Register/Login to schedule an appointment or a test in your nearest hospital</p>
-          <a href="#" class="btn btn-primary">Register</a>
-          <a href="#" class="btn btn-primary">Login</a>
+          <a href="pregister/" class="btn btn-primary">Register</a>
+          <a href="plogin/" class="btn btn-primary">Login</a>
         </div>
       </div>
     </div>
@@ -65,7 +65,7 @@
         <div class="card-body">
           <h5 class="card-title">Emergency</h5>
           <p class="card-text">Immediate booking for bed, ICU, oxygen cylinder, etc during medical emergencies </p>
-          <a href="login/" class="btn btn-primary">Emergency Booking</a>
+          <a href="#" class="btn btn-primary">Emergency Booking</a>
         </div>
       </div>
     </div>

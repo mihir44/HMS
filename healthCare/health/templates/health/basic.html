@@ -74,14 +74,14 @@
             <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
               {% with url_name=request.resolver_match.url_name %}
               <li class="{% if url_name == 'home'%}active {% endif %}"><a href="/"><span>Home</span></a></li>
-              <li class="{% if url_name == 'about'%}active {% endif %}"><a href="about/"><span>About</span></a></li>
-              <li class="{% if url_name == 'contact'%}active {% endif %}"><a href="contact/"><span>Contact</span></a>
+              <li class="{% if url_name == 'about'%}active {% endif %}"><a href="{% url 'about' %}"><span>About</span></a></li>
+              <li class="{% if url_name == 'contact'%}active {% endif %}"><a href="{% url 'contact' %}"><span>Contact</span></a>
               </li>
               <li class="{% if url_name == 'appointment'%}active {% endif %}"><a href="blog.html"><span>Appointments</span></a></li>
               <li class="{% if url_name == 'labtest'%}active {% endif %}"><a href="blog.html"><span>Lab Tests</span></a>
               </li>
               <li class="{% if url_name == 'emergency'%}active {% endif %}"><a href="blog.html"><span>Emergency</span></a></li>
-              <li class="{% if url_name == 'register'%}active {% endif %}"><a href="signlog/"><span>Sign
+              <li class="{% if url_name == 'register'%}active {% endif %}"><a href="{% url 'patientregister' %}"><span>Sign
                     Up/Login</span></a></li>
               {% endwith %}
             </ul>

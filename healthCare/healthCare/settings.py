@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os.path
 from pathlib import Path
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,6 +29,13 @@ SECRET_KEY = '1=(25hs_d3ig7rx5xr!c!wbyhq=-337)v7c!2uc2n@3a(c7adn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# Email backend
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'aim2care29@gmail.com'
+EMAIL_HOST_PASSWORD = 'Aim2Care@123'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 ALLOWED_HOSTS = []
 
 
@@ -38,6 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'health',
+    'patient',
+    'hospital',
+    'accounts',
 ]
 
 MIDDLEWARE = [

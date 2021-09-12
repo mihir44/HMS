@@ -18,21 +18,24 @@
     </div>
         <div class="form-container">
             <div class="image-holder">
-			{% comment %} <img src="{%static 'health/images/nursepic.jpg' %}"> {% endcomment %}
+                <img src="{%static 'health/images/nursepic.jpg' %}">
 			</div>
-            <form method="post">
+            <form method="post" action="">{% csrf_token%}
                 <h2 class="text-center" style="color: #35477d;font-family: Verdana; font-size:24px;"><strong>Patient Registration</strong></h2>
                 <h2 class="text-center" style="color: #35477d;font-family: Verdana; font-size:20px;"><strong>Create an account.</strong></h2>
-                
+
+                <div class="form-group"><input class="form-control" type="text" name="username" placeholder="Username"></div>
+                <div class="form-group"><input class="form-control" type="text" name="fname" placeholder="First name"></div>
+                <div class="form-group"><input class="form-control" type="text" name="lname" placeholder="Last name"></div>
                 <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-                <div class="form-group"><input class="form-control" type="password" name="password-repeat" placeholder="Confirm Password"></div>
+                <div class="form-group"><input class="form-control" type="password" name="password1" placeholder="Password"></div>
+                <div class="form-group"><input class="form-control" type="password" name="password2" placeholder="Confirm Password"></div>
                 <div class="form-group">
                     <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
                 </div>
                 <div class="form-group"><button class="btn btn-primary btn-block" type="submit"><strong>Sign Up</strong></button>
                 </div>
-                <a href="{% url 'patientlogin' %}" class="already">Already have an account? <strong>Login here.</strong></a></form>
+                <a href="{% url 'plogin' %}" class="already">Already have an account? <strong>Login here.</strong></a></form>
         </div>
     </div>
 

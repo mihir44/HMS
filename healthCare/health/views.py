@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
+from django.conf import settings
+from django.contrib.auth.models import User
+from django.core.mail import send_mail, EmailMessage
 from .models import Contact
 from django.contrib import messages
 
@@ -9,6 +12,7 @@ def index(request):
 
 def contact(request):
     if request.method == 'POST':
+
         name = request.POST.get('name', '')
         email = request.POST.get('email', '')
         phone = request.POST.get('phone', '')
@@ -16,23 +20,15 @@ def contact(request):
         category = request.POST.get('category','')
         contact = Contact(name = name, email = email, category = category, message = message, phone = phone)
         contact.save()
-
+        # email = EmailMessage()
+        send_mail(
+            category, # subject
+            message, # message
+            email, # from email
+            ['aim2care29@gmail.com'], # to email
+        )
         messages.success(request, 'Message Sent! Aim2Care will contact you soon')
     return render(request,'health/contact.html')
-
-def patientLogin(request):
-    return render(request, 'health/patient_login.html')
-
-def patientRegister(request):
-    return render(request, 'health/patient_register.html')
-
-
-def hospitalLogin(request):
-    return render(request, 'health/hospital_login.html')
-
-
-def hospitalRegister(request):
-    return render(request, 'health/hospital_register.html')
 
 def otp(request):
     return render(request, 'health/otp.html')

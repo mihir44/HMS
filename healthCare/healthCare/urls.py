@@ -20,7 +20,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('health.urls'))
+    path('', include('health.urls')),
+    path('patient/', include('patient.urls')),
+    path('hospital/', include('hospital.urls')),
+    path('accounts/', include('accounts.urls')),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 admin.site.site_header="AIM2CARE"

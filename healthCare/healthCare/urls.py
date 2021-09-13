@@ -23,7 +23,7 @@ urlpatterns = [
     path('', include('health.urls')),
     path('patient/', include('patient.urls')),
     path('hospital/', include('hospital.urls')),
-    path('accounts/', include('accounts.urls')),
+    path('account/', include('account.urls')),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 admin.site.site_header="AIM2CARE"

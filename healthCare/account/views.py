@@ -20,10 +20,11 @@ def pregister(request):
                 messages.info(request, 'Email Taken')
                 return redirect('pregister')
             else:
-                user = User.objects.create_user(username=username, password=password1, email=email,
+                user = User.objects.create(username=username, password=password1, email=email,
                                                 first_name=first_name, last_name=last_name,)
                 user.save()
-                patient = Patient.objects.create_user(user=user, phone_number=phone_number)
+                user_name = User.objects.filter(username=username)[0]
+                patient = Patient.objects.create(user=user_name, phone_number=phone_number)
                 patient.save()
                 return redirect('plogin')
         else:
@@ -65,11 +66,11 @@ def hregister(request):
                 messages.info(request, 'Email Taken')
                 return redirect('hregister')
             else:
-                user = User.objects.create_user(username=username, password=password1, email=email,phone_number= phone_number)
+                user = User.objects.create(username=username, password=password1, email=email,)
                 user.save()
-                hospital = Hospital.objects.create_user(user=user, phone_number=phone_number)
+                user_name = User.objects.filter(username=username)[0]
+                hospital = Hospital.objects.create(doctor=user_name, phone_number=phone_number)
                 hospital.save()
-                print('user created')
                 return redirect('hlogin')
         else:
             messages.info(request, 'password not matching..')

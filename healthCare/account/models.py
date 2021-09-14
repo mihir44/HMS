@@ -8,9 +8,9 @@ class User(AbstractUser):
     is_hospital = models.BooleanField(default=False)
 
 class Patient(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    phone_number = models.IntegerField(max_length=10)
+    phone_number = models.IntegerField()
+    user = models.ForeignKey(User, related_name='user',on_delete=models.CASCADE,)
 
 class Hospital(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    phone_number = models.IntegerField(max_length=10)
+    doctor = models.ForeignKey(User,on_delete=models.CASCADE,)
+    phone_number = models.IntegerField()

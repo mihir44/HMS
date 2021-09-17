@@ -82,7 +82,7 @@
               </li>
               <li class="{% if url_name == 'emergency'%}active {% endif %}"><a href="blog.html"><span>Emergency</span></a></li>
               {% if user.is_authenticated %}
-              <li><a href="#">Hello, {{user.username}}</a></li>
+              <li><a href="{% url 'patient_profile' %}">Hello, {{user.username}}</a></li>
               <li><a href="{% url 'logout' %}">Logout</a></li>
               {% else %}
               <li class="{% if url_name == 'signlog'%}active {% endif %}"><a href="{% url 'signlog' %}"><span>Sign

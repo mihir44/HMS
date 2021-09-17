@@ -11,4 +11,7 @@ class Patient_profile(models.Model):
     medical_history = models.CharField(max_length=25)
     gender = models.CharField(max_length=15)
 
+    def __str__(self):
+        return f"{self.patient.username} Profile"
+
 

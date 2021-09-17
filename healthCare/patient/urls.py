@@ -4,5 +4,5 @@ from django.conf import settings
 from . import views
 
 urlpatterns = [
-    path('home/', views.index, name='home'),
+    path('', views.index, name='patient_home'),
 ]

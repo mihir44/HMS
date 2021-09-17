@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from .models import User,Patient,Hospital
+from health import views
 # Create your views here.
 def pregister(request):
     if request.method == 'POST':
@@ -20,8 +21,8 @@ def pregister(request):
                 messages.info(request, 'Email Taken')
                 return redirect('pregister')
             else:
-                user = User.objects.create(username=username, password=password1, email=email,
-                                                first_name=first_name, last_name=last_name,)
+                user = User.objects.create_user(username=username, password=password1, email=email,
+                                                first_name=first_name, last_name=last_name,is_patient = True)
                 user.save()
                 user_name = User.objects.filter(username=username)[0]
                 patient = Patient.objects.create(user=user_name, phone_number=phone_number)
@@ -38,14 +39,14 @@ def plogin(request):
         username = request.POST['username']
         password = request.POST['password']
 
-        user = auth.authenticate(username=username, password=password)
+        user = auth.authenticate(username=username, password=password, is_patient = True)
 
         if user is not None:
             auth.login(request, user)
-            return redirect("/")
+            return redirect("/patient")
         else:
             messages.info(request, 'invalid credentials')
-            return redirect('patient_login.html')
+            return redirect('plogin')
 
     else:
         return render(request, 'patient_login.html')
@@ -66,7 +67,7 @@ def hregister(request):
                 messages.info(request, 'Email Taken')
                 return redirect('hregister')
             else:
-                user = User.objects.create(username=username, password=password1, email=email,)
+                user = User.objects.create_user(username=username, password=password1, email=email,is_hospital = True)
                 user.save()
                 user_name = User.objects.filter(username=username)[0]
                 hospital = Hospital.objects.create(doctor=user_name, phone_number=phone_number)
@@ -88,7 +89,7 @@ def hlogin(request):
 
         if hospital is not None:
             auth.login(request, hospital)
-            return redirect("/")
+            return redirect("hospital/")
         else:
             messages.info(request, 'invalid credentials')
             return redirect('hospital_login.html')

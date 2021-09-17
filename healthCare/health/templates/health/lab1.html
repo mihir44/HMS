@@ -1,0 +1,306 @@
+{% extends 'health/basic.html' %}
+{% load static %}
+
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+
+
+
+{% block title %}Book Lab{% endblock %}
+
+{% block body %}
+
+<style type="text/css">
+.bg-cover {
+    background-size: cover !important;
+}
+
+body {
+    min-height: 100vh;
+}
+
+section{
+	padding: 60px 0;
+}
+
+#accordion-style-1 h1,
+#accordion-style-1 a{
+    color: black;
+    font-weight: 600;
+    background-color: transparent;
+    text-decoration: none !important;
+    font-size: 28px;
+}
+
+#accordion-style-1 .btn-link {
+    font-weight: 100;
+    color: #007bff;
+    background-color: transparent;
+    text-decoration: none !important;
+    font-size: 11px;
+    font-weight: bold;
+	padding-left: 25px;
+}
+
+#accordion-style-1 .card-body {
+    border-top: 2px solid #007bff;
+}
+
+#accordion-style-1 .card-header .btn.collapsed .fa.main{
+	display:none;
+}
+
+#accordion-style-1 .card-header .btn .fa.main{
+	background: #007bff;
+    padding: 13px 11px;
+    color: #ffffff;
+    width: 35px;
+    height: 41px;
+    position: absolute;
+    left: -1px;
+    top: 10px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+	display:block;
+}
+
+
+</style>
+
+<div style="background: url(https://images.squarespace-cdn.com/content/v1/568d772940667a504a775186/1494951588089-ZM37OI8XC3F8EDAE09FN/Medical+Background-Small.jpg?format=1500w)" class="jumbotron bg-cover text-white">
+    <div class="container py-5 text-center">
+        <h1 class="display-7 font-weight-bold">Book Lab Tests At Home</h1>
+             
+        <a href="/lab2" role="button" class="btn btn-primary px-5">Book Now</a>
+    </div>
+</div>
+
+<div class="container mt-2">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+            <div class="card p-4 mt-3">
+                
+                <div class="row mt-1 g-1 px-8 mb-1">
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="https://i.imgur.com/Mb8kaPV.png" width="50">
+                            <div class="text-center mg-text"> <span class="mg-text">Account</span> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="https://i.imgur.com/ueLEPGq.png" width="50">
+                            <div class="text-center mg-text"> <span class="mg-text">Easy Payments</span> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="https://i.imgur.com/tmqv0Eq.png" width="50">
+                            <div class="text-center mg-text"> <span class="mg-text">Quick Reports</span> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="https://i.imgur.com/D0Sm15i.png" width="50">
+                            <div class="text-center mg-text"> <span class="mg-text">Easy Booking</span> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="https://i.imgur.com/Z7BJ8Po.png" width="50">
+                            <div class="text-center mg-text"> <span class="mg-text">Faster Process</span> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card-inner p-3 d-flex flex-column align-items-center"> <img src="https://i.imgur.com/YLsQrn3.png" width="50">
+                            <div class="text-center mg-text"> <span class="mg-text">Accuracy</span> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid bg-gray" id="accordion-style-1">
+	<div class="container">
+		<section>
+			<div class="row">
+				<div class="col-12">
+					<h1 class="text-green mb-4 text-center">Frequently Asked Questions</h1>
+				</div>
+				<div class="col-10 mx-auto">
+					<div class="accordion" id="accordionExample">
+						<div class="card">
+							<div class="card-header" id="headingOne">
+								<h5 class="mb-0">
+							<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							  <i class="fa fa-plus main"></i><i class="fa fa-angle-double-right mr-3"></i>Why should I get my tests done at Aim2Care?
+							</button>
+						  </h5>
+							</div>
+
+							<div id="collapseOne" class="collapse show fade" aria-labelledby="headingOne" data-parent="#accordionExample">
+								<div class="card-body">
+									MedPlusMart is a quality laboratory with state of the art testing equipment and technology. Our lab has rigid quality protocols to ensure your tests are as accurate as possible. The entire process from sample collection to report delivery are handled by our own staff to ensure seamless service. To top it all, we offer the convenience of home sample pick up and report delivery while doing it all at a fraction of cost that other comparable labs charge.
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-header" id="headingTwo">
+								<h5 class="mb-0">
+							<button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							 <i class="fa fa-plus main"></i><i class="fa fa-angle-double-right mr-3"></i>What tests do you offer?
+							</button>
+						  </h5>
+							</div>
+							<div id="collapseTwo" class="collapse fade" aria-labelledby="headingTwo" data-parent="#accordionExample">
+								<div class="card-body">
+									We have an extensive catalogue of tests covering a majority of the routine testing needs for most patients along with a choice of several preventive health care packages. Please browse the test list or search for the name of the test you need. If you are unsure what the doctor ordered, please upload your prescription and our customer care team will help you select the right tests.
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header" id="headingThree">
+								<h5 class="mb-0">
+							<button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							  <i class="fa fa-plus main"></i><i class="fa fa-angle-double-right mr-3"></i>Do you offer health check-ups?
+							</button>
+						  </h5>
+							</div>
+							<div id="collapseThree" class="collapse fade" aria-labelledby="headingThree" data-parent="#accordionExample">
+								<div class="card-body">
+									We offer comprehensive preventive health checks for all your family members including children. Please browse of packages section for test details.
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header" id="headingFour">
+								<h5 class="mb-0">
+							<button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+							  <i class="fa fa-plus main"></i><i class="fa fa-angle-double-right mr-3"></i>I booked a test. I want to reschedule it
+							</button>
+						  </h5>
+							</div>
+							<div id="collapseFour" class="collapse fade" aria-labelledby="headingFour" data-parent="#accordionExample">
+								<div class="card-body">
+									Our customer care team can help you with this. Call 355553
+								</div>
+							</div>
+						</div>
+
+                        <div class="card">
+							<div class="card-header" id="headingThree">
+								<h5 class="mb-0">
+							<button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							  <i class="fa fa-plus main"></i><i class="fa fa-angle-double-right mr-3"></i>How will i receive my test reports?
+							</button>
+						  </h5>
+							</div>
+							<div id="collapseThree" class="collapse fade" aria-labelledby="headingThree" data-parent="#accordionExample">
+								<div class="card-body">
+									Depending on the complexity of the tests, it could take several days to complete the tests (min 2-3 days). Result reports are sent on your registered email ID based on a fixed schedule.
+								</div>
+							</div>
+						</div>
+
+                        
+				
+
+					</div>
+				</div>	
+			</div>
+		</section>
+	</div>
+</div>
+
+
+<!-- Top hospital -->
+<div class="container" style="text-align: center;">
+  <div class="row">
+    <div class="col-xs-8">
+      <h2>Our Partners - Featured Labs </h2>
+    </div>
+  </div>
+</div>
+<ul id="autoWidth" class="cs-hidden">
+  <li class="item-e">
+    <div class="box">
+      <div class="slide-img">
+        <img src="{%static 'health/images/labs/aim.jpg' %}" alt="" />
+        <div class="overlay">
+            
+          <class="buy-btn" style="font-size: 11px; padding: 7px"><strong>We pride ourselves on three things 1) Assured Quality 2) Best Prices 3) Excellent Turn Around Time. We believe in providing the highest level of transparency to our customers.</strong>
+        </div>
+      </div>
+      <div class="detail-box">
+        <div class="type">
+          <a >Aim2Care Labs</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li class="item-a">
+    <div class="box">
+      <div class="slide-img">
+        <img src="{%static 'health/images/labs/metro.png' %}" alt="" />
+        <div class="overlay">
+            
+          <class="buy-btn" style="font-size: 11px; padding: 7px"><strong>Metropolis has grown to harness a culture that is open, synergistic, progressive and scientific in nature. We are the Pathology Specialists delivering over 30 million tests a year, catering to more than 20,000 medical Laboratories</strong>
+        </div>
+      </div>
+      <div class="detail-box">
+        <div class="type">
+          <a >Metropolis Labs</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li class="item-b">
+    <div class="box">
+      <div class="slide-img">
+        <img src="{%static 'health/images/labs/lalp.png' %}" alt="" />
+        <div class="overlay">
+          <class="buy-btn" style="font-size: 11px; padding: 7px"><strong> With over 3368 diagnostic and related healthcare tests and services offered, we believe we are capable of performing substantially all of the diagnostic healthcare tests and services currently prescribed by physicians in India.</strong>
+        </div>
+      </div>
+      <div class="detail-box">
+        <div class="type">
+          <a> Dr. Lal PathLabs </a>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="item-c">
+    <div class="box">
+      <div class="slide-img">
+        <img src="{%static 'health/images/labs/nirm.jpg' %}" alt="" />
+        <div class="overlay">
+          <class="buy-btn" style="font-size: 11px; padding: 7px"><strong> Niramaya Healthcare ensures that every test conducted is of highest quality. The team of Niramaya is committed to ensuring an amazing Customer experience and firmly believes in the philosophy of "Sarve Santu Niramaya"</strong>
+        </div>
+      </div>
+      <div class="detail-box">
+        <div class="type">
+          <a>Niramaya Pathlabs</a>
+        </div>
+      </div>
+    </div>
+  </li>
+   
+  
+</ul>
+
+
+
+
+<!--<script src="{%static 'health/js/jquery-3.3.1.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/popper.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/bootstrap.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/jquery.validate.min.js' %}"></script>-->
+<!-- <script src="js/main.js"></script> -->
+
+{% endblock %}

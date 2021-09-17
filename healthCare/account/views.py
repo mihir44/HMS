@@ -89,10 +89,10 @@ def hlogin(request):
 
         if hospital is not None:
             auth.login(request, hospital)
-            return redirect("hospital/")
+            return redirect("/hospital")
         else:
             messages.info(request, 'invalid credentials')
-            return redirect('hospital_login.html')
+            return redirect('hlogin')
     else:
         return render(request, 'hospital_login.html')
 

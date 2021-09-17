@@ -4,6 +4,85 @@
 
 {% block body %}
 {% load static %}
+
+ <style type="text/css">
+.hover {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 60%;
+}
+
+.hover-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  transition: all 0.4s;
+}
+
+.hover img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+}
+
+.hover-content {
+  position: relative;
+  z-index: 99;
+}
+
+
+/* DEMO 1 ============================== */
+.hover-1 img {
+  width: 95%;
+  position: absolute;
+  top: 0;
+  left: -5%;
+  transition: all 0.3s;
+}
+
+.hover-1-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  transition: all 0.4s;
+}
+
+.hover-1 .hover-overlay {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.hover-1-description {
+  transform: translateY(0.5rem);
+  transition: all 0.4s;
+  opacity: 0;
+}
+
+.hover-1:hover .hover-1-content {
+  bottom: 2rem;
+}
+
+.hover-1:hover .hover-1-description {
+  opacity: 1;
+  transform: none;
+}
+
+.hover-1:hover img {
+  left: 0;
+}
+
+.hover-1:hover .hover-overlay {
+  opacity: 0;
+}
+
+
+  </style>
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height: 50vh;"> 
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -12,14 +91,14 @@
   </ol>
   <div class="carousel-inner" style="height: 50vh;">
     <div class="carousel-item active">
-      <img class="d-block w-100 homeBanner" src="{%static 'health/images/doctors_appointment_banner.webp' %}"
+      <img class="d-block w-100 homeBanner" src="{%static 'health/images/16.jpg' %}"
         alt="First slide">
     </div>
     <div class="carousel-item" style="height: 50vh;">
-      <img class="d-block w-100 homeBanner" src="{%static 'health/images/doctors.jpg' %}" alt="Second slide">
+      <img class="d-block w-100 homeBanner" src="{%static 'health/images/1.jpg' %}" alt="Second slide">
     </div>
     <div class="carousel-item" style="height: 50vh;">
-      <img class="d-block w-100 homeBanner" src="{%static 'health/images/hospital.jpg' %}" alt="Third slide">
+      <img class="d-block w-100 homeBanner" src="{%static 'health/images/2.jpg' %}" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -58,7 +137,7 @@
         </div>
       </div>
     </div>
-    <!-- Emergancy -->
+    <!-- Emergency -->
     <div class="col-lg-4">
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="{%static 'health/images/emergency.jpg' %}" alt="Card image cap">
@@ -72,17 +151,46 @@
   </div>
 </div>
 
+<!-- What would you like to do today-->
+ <div class="py-5">
+    <h3 class=" mt-1 mb-5" style="text-align: center;">What would you like to do today</h3>
+    
+    <div class="row" style="padding-left: 200px">
+      <!-- DEMO 1 Item-->
+      <div class="col-lg-5 mb-1 mb-lg-5 " >
+        <div class="hover hover-1 text-white rounded"><img src="https://media.istockphoto.com/photos/uses-laptop-while-talking-with-patient-stock-photo-picture-id1295918822?b=1&k=20&m=1295918822&s=170667a&w=0&h=O893zFnVFLy2DjafiK7KAs8MeSpS2e-P8TUIjRshqjE=" alt="">
+          <div class="hover-overlay"></div>
+          <div class="hover-1-content px-5 py-4">
+          <a href="#" style="color: #000; font-size: 1.5rem; font-weight:bold">Book An Appointment</a>
+            
+            <p class="hover-1-description font-weight-bold mb-0" style="color: #212529;">A patient-centric service that gives patients the freedom to consult a doctor at his convenience from anywhere, anytime. </p>
+          </div>
+        </div>
+      </div>
+      <!-- DEMO 1 Item-->
+      <div class="col-lg-5 ">
+        <div class="hover hover-1 text-white rounded"><img src="https://images.unsplash.com/photo-1575467322691-1e971b0a6d32?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGxhYiUyMHRlc3R8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+          <div class="hover-overlay"></div>
+          <div class="hover-1-content px-5 py-4">
+            <a href="#" style="color: #000; font-size: 1.5rem; font-weight:bold">Book A Lab Test</a>
+            <p class="hover-1-description font-weight-bold mb-0" style="color: #212529;"> Lab right to the consumer’s doorstep, with home sample collection, same-day reports and affordable pricing on lab tests.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <!-- specialist-->
 <div class="container" style="text-align: center;">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-3">
       <h2>Specialist</h2>
     </div>
   </div>
 </div>
-<section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-wrap -m-4">
+<section class="text-gray-100 body-font">
+  <div class="container px-5 py-8 mb-5 mx-auto">
+    <div class="flex flex-wrap">
       <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
         <a class="block relative rounded overflow-hidden">
           <img alt="ecommerce" class="object-cover object-center w-full h-full block"
@@ -161,7 +269,7 @@
 <!-- Top hospital -->
 <div class="container" style="text-align: center;">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-8">
       <h2>Best Hospitals in Mumbai</h2>
     </div>
   </div>

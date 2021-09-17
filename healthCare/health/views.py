@@ -39,5 +39,14 @@ def about(request):
 def signlog(request):
     return render(request, 'health/signlog.html')
 
+def lab1(request):
+    return render(request, 'health/lab1.html')
+
+def lab2(request):
+    return render(request, 'health/lab2.html')
+
+def lab3(request):
+    return render(request, 'health/lab3.html')
+
 
     

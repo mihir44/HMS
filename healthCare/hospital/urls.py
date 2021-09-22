@@ -4,5 +4,5 @@ from django.conf import settings
 from . import views
 urlpatterns = [
     path('', views.index, name='hospital_home'),
-    path('profile', views.profile, name='patient_profile'),
+    path('profile', views.profile, name='hospital_profile'),
 ]

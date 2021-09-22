@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from .models import User,Patient,Hospital
-from health import views
 # Create your views here.
 def pregister(request):
     if request.method == 'POST':
@@ -82,11 +81,11 @@ def hregister(request):
 
 def hlogin(request):
     if request.method == 'POST':
-        email = request.POST['email']
+        username = request.POST['username']
         password = request.POST['password']
 
-        hospital = auth.authenticate(email=email, password=password)
-
+        # hospital = auth.authenticate(email=email, password=password, is_hospital = True)
+        hospital = auth.authenticate(username=username, password=password, is_hospital = True)
         if hospital is not None:
             auth.login(request, hospital)
             return redirect("/hospital")

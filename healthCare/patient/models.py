@@ -1,5 +1,5 @@
 from django.db import models
-from account.models import Patient
+from account.models import *
 # Create your models here
 class Patient_profile(models.Model):
     patient = models.OneToOneField(Patient, on_delete=models.CASCADE)

@@ -1,7 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm
 from .models import Patient
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 class UserForm(UserCreationForm):
     class Meta:
@@ -17,7 +19,7 @@ class UserForm(UserCreationForm):
                 user.save()
                 return user
 
-class Patient(forms.ModelForm):
+class Patient_form(forms.ModelForm):
     class Meta:
         model = Patient
         fields = ['gender','phone_number','address','city','state','postal','dob']

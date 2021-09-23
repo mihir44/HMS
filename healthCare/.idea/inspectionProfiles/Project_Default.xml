@@ -1,0 +1,39 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="static" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E302" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="gs1.gs1.*" />
+          <option value="api.views" />
+          <option value="gs2.gs2.urls.gs2api" />
+          <option value="crud.views" />
+          <option value="django.views.view" />
+          <option value="gs3.crud.views.*" />
+          <option value="HealthCare.HealthCare.views" />
+          <option value="health.health.*" />
+          <option value="health.*" />
+          <option value="Application_Main.Application_Main.urls.COMMON_APP" />
+          <option value="django.ModelForm" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

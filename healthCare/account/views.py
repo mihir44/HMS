@@ -2,20 +2,18 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from .models import User,Patient,Hospital
-from .forms import Patient,UserForm
+from .forms import Patient_form,UserForm
 # Create your views here.
 def pregister(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
-        patient = Patient(request.POST)
+        patient = Patient_form(request.POST)
         if form.is_valid() and patient.is_valid():
             user = form.save()
-            patient = patient.save(commit=False)
+            patient = Patient_form.save(commit=False)
             patient.user=user
-            profile.save()
-
-            username = form.cleaned_data()
-
+            patient.save()
+            return redirect('plogin')
     else:
         form = UserForm(request.POST)
         patient = Patient(request.POST)

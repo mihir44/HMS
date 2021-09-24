@@ -15,21 +15,10 @@ def profile(request):
         fm = EditPatientProfile(request.POST,initial={'username': request.user.username,
                                                   'email': request.user.email})
         profile = Patient_details(request.POST)
-        return render(request,'patient/patient_profile.html', {'username': request.user.username,'email':request.user.email, 'form':fm, 'profile': profile})
+        return render(request,'patient/patient_profile.html',
+                      {'username': request.user.username,'email':request.user.email, 'form':fm, 'profile': profile})
     else:
         return render(request,'patient_login.html')
-
-@login_required(login_url='plogin')
-def patientDetails(request):
-    patient = request.user.user
-    form = Patient_details(instance=patient)
-
-    if request.method == 'POST':
-        form = Patient_details(request.POST, instance=patient)
-        if form.is_valid():
-            form.save()
-    context = {'form': form}
-    return render(request, 'accounts/accounts_setting.html', context)
 
 @login_required(login_url='plogin')
 def appointment(request):

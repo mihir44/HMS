@@ -2,12 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from .models import User,Patient,Hospital
-<<<<<<< HEAD
+
 from .decoraters import unauthenticated_user
 
-=======
+
 from .forms import Patient_form,UserForm
->>>>>>> 47bc73da4dd6665836b0b17418d066c55bd9b616
+
 # Create your views here.
 @unauthenticated_user
 def pregister(request):

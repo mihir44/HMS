@@ -12,6 +12,7 @@
 
 {% block body %}
 
+<<<<<<< HEAD
 <div class="register-photo">
     <div class="header">
     
@@ -40,5 +41,15 @@
         </div>
     </div>
 
+=======
+<div class="container">
+    <form action="" method="post">{% csrf_token%}
+        {{form.as_p}}
+        {{patient.as_p}}
+        <input type="submit" value="Sign Up">
+    </form>
+
+</div>
+>>>>>>> 47bc73da4dd6665836b0b17418d066c55bd9b616
 
 {% endblock %}

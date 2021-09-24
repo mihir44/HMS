@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserChangeForm
+<<<<<<< HEAD
 from .forms import EditPatientProfile, Patient_details, AppointmentForm
 from django.contrib.auth.decorators import login_required
 
+=======
+from .forms import EditPatientProfile
+>>>>>>> 47bc73da4dd6665836b0b17418d066c55bd9b616
 # Create your views here.
 @login_required(login_url='plogin')
 def index(request):
@@ -17,6 +21,7 @@ def profile(request):
     else:
         return render(request,'patient_login.html')
 
+<<<<<<< HEAD
 @login_required(login_url='plogin')
 def patientDetails(request):
     patient = request.user.user
@@ -26,6 +31,16 @@ def patientDetails(request):
         form = Patient_details(request.POST, request.FILES, instance=patient)
         if form.is_valid():
             form.save()
+=======
+# def patientDetails(request):
+#     patient = request.user.user
+#     form = Patient_details(instance=patient)
+#
+#     if request.method == 'POST':
+#         form = Patient_details(request.POST, request.FILES, instance=patient)
+#         if form.is_valid():
+#             form.save()
+>>>>>>> 47bc73da4dd6665836b0b17418d066c55bd9b616
 
     context = {'form': form}
     return render(request, 'accounts/accounts_setting.html', context)

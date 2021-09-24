@@ -3,10 +3,13 @@ from django import forms
 from datetime import date
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.contrib.auth.models import User
+<<<<<<< HEAD
 from crispy_forms.helper import FormHelper
 
 from .models import Patient_profile, Appointment
 from account.models import User
+=======
+>>>>>>> 47bc73da4dd6665836b0b17418d066c55bd9b616
 from django.forms import ModelForm
 import account.models
 
@@ -14,6 +17,7 @@ class EditPatientProfile(UserChangeForm):
     class Meta:
         model = User
         fields = ['username', 'email']
+<<<<<<< HEAD
 class Patient_details(ModelForm):
 
     class Meta:
@@ -33,6 +37,13 @@ class AppointmentForm(forms.ModelForm):
 
 
 
+=======
+
+# class Patient_details(ModelForm):
+#     class Meta:
+#         model = Patient_profile
+#         fields = '__all__'
+>>>>>>> 47bc73da4dd6665836b0b17418d066c55bd9b616
 
 
 

@@ -1,4 +1,5 @@
 from django.db import models
+<<<<<<< HEAD
 from account.models import Patient, Hospital
 # Create your models here
 class Patient_profile(models.Model):
@@ -37,5 +38,8 @@ class Appointment(models.Model):
         date = models.DateField()
         timeslot = models.IntegerField(choices=TIMESLOT_LIST)
         patient_name = models.CharField(max_length=60)
+=======
+
+>>>>>>> 47bc73da4dd6665836b0b17418d066c55bd9b616
 
 

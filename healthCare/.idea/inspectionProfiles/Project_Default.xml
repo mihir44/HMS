@@ -15,6 +15,7 @@
       <option name="ignoredErrors">
         <list>
           <option value="E302" />
+          <option value="W292" />
         </list>
       </option>
     </inspection_tool>
@@ -32,6 +33,8 @@
           <option value="health.*" />
           <option value="Application_Main.Application_Main.urls.COMMON_APP" />
           <option value="django.ModelForm" />
+          <option value="django.db.models.fields.related.OneToOneField.patient" />
+          <option value="django.widgets" />
         </list>
       </option>
     </inspection_tool>

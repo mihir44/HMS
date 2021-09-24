@@ -10,7 +10,7 @@
 			<form method="POST" action="">
                 {% csrf_token %}
                 {{form | crispy}}
-				{{profile | crispy}}
+				{{patient | crispy}}
 			<input class="btn btn-primary my-3" type="submit" name="Update Information">
 			</form>
 		</div>

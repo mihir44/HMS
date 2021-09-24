@@ -12,7 +12,6 @@
 
 {% block body %}
 
-<<<<<<< HEAD
 <div class="register-photo">
     <div class="header">
     
@@ -32,24 +31,21 @@
                 <div class="form-group"><input class="form-control" type="tel" name="mobile" placeholder="phone number"></div>
                 <div class="form-group"><input class="form-control" type="password" name="password1" placeholder="Password"></div>
                 <div class="form-group"><input class="form-control" type="password" name="password2" placeholder="Confirm Password"></div>
-<!--                <div class="form-group">-->
-<!--                    <div class="form-check"><label class="form-check-label"><input class="form-check-inpu" type="checkbox">I agree to the license terms.</label></div>-->
-<!--                </div>-->
+                <div class="form-group">
+                    <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
+                </div>
                 <div class="form-group"><button class="btn btn-primary btn-block" type="submit"><strong>Sign Up</strong></button>
                 </div>
                 <a href="{% url 'plogin' %}" class="already">Already have an account? <strong>Login here.</strong></a></form>
         </div>
     </div>
 
-=======
-<div class="container">
-    <form action="" method="post">{% csrf_token%}
-        {{form.as_p}}
-        {{patient.as_p}}
-        <input type="submit" value="Sign Up">
-    </form>
 
-</div>
->>>>>>> 47bc73da4dd6665836b0b17418d066c55bd9b616
+
+<!--<script src="{%static 'health/js/jquery-3.3.1.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/popper.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/bootstrap.min.js' %}"></script>-->
+<!--<script src="{%static 'health/js/jquery.validate.min.js' %}"></script>-->
+<!-- <script src="js/main.js"></script> -->
 
 {% endblock %}

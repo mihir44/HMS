@@ -2,7 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from .models import User,Patient,Hospital
+from .decoraters import unauthenticated_user
+
 # Create your views here.
+@unauthenticated_user
 def pregister(request):
     if request.method == 'POST':
         first_name = request.POST['fname']
@@ -33,6 +36,7 @@ def pregister(request):
     else:
         return render(request, 'patient_register.html')
 
+@unauthenticated_user
 def plogin(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -50,6 +54,7 @@ def plogin(request):
     else:
         return render(request, 'patient_login.html')
 
+@unauthenticated_user
 def hregister(request):
     if request.method == 'POST':
         username = request.POST['hname']
@@ -79,6 +84,7 @@ def hregister(request):
     else:
         return render(request, 'hospital_register.html')
 
+@unauthenticated_user
 def hlogin(request):
     if request.method == 'POST':
         username = request.POST['username']

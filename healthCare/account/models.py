@@ -14,3 +14,6 @@ class Patient(models.Model):
 class Hospital(models.Model):
     doctor = models.ForeignKey(User,on_delete=models.CASCADE,)
     phone_number = models.IntegerField()
+
+    def __str__(self):
+        return self.doctor.username

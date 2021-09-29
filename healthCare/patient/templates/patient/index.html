@@ -1,5 +1,60 @@
 {% extends 'health/basic.html' %}
 {% block title %}Home{% endblock %}
+{% load static %}
+    <link rel="stylesheet" href="{%static 'health/css/bootstrap.css' %}">
+
 {% block body %}
-<p>Hii</p>
+
+ <link rel="stylesheet" href="{%static 'health/css/themify-icons.css' %}">
+<!--    <link rel="stylesheet" href="{%static 'health/css/flaticon.css' %}">-->
+    <link rel="stylesheet" href="{%static 'health/css/style2.css' %}">
+    <link rel="stylesheet" href="{%static 'health/scss/_breadcrumb.scss' %}">
+    <link rel="stylesheet" href="{%static 'health/scss/_header.scss' %}">
+  <section class="banner-area d-flex align-items-center" style="background-image: url('{%static 'health/images/home-banner.jpg' %}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-lg-6 col-xl-5">
+                    <h1>Making Health<br>
+                    Care Better Together</h1>
+                    <p>Also you dry creeping beast multiply fourth abundantly our itsel signs bring our. Won form living. Whose dry you seasons divide given gathering great in whose you'll greater let livein form beast  sinthete
+                    better together these place absolute right.</p>
+                    <a href="{% url 'appointment' %}" class="main_btn">Make an Appointment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="feature-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-feature text-center text-lg-left">
+
+                            <h3 class="card-feature__title"><span class="card-feature__icon">
+                                <i class="ti-layers"></i>
+                            </span>Appointment</h3>
+                            <p class="card-feature__subtitle">An so vulgar to on points wanted rapture ous resolving continued household </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-feature text-center text-lg-left">
+
+                            <h3 class="card-feature__title"><span class="card-feature__icon">
+                                <i class="ti-heart-broken"></i>
+                            </span>Emergency Cases</h3>
+                            <p class="card-feature__subtitle">An so vulgar to on points wanted rapture ous resolving continued household </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-feature text-center text-lg-left">
+
+                            <h3 class="card-feature__title"><span class="card-feature__icon">
+                                <i class="ti-headphone-alt"></i>
+                            </span>Lab Appointment</h3>
+                            <p class="card-feature__subtitle">An so vulgar to on points wanted rapture ous resolving continued household </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
 {% endblock %}

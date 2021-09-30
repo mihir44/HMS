@@ -6,7 +6,7 @@ from .forms import EditPatientProfile, Patient_details, AppointmentForm
 
 # Create your views here.
 
-@login_required(login_url='plogin')
+@login_required(login_url='signlog')
 def index(request):
     return render(request,'patient/index.html')
 @login_required(login_url='plogin')
@@ -20,7 +20,7 @@ def profile(request):
     else:
         return render(request,'patient_login.html')
 
-@login_required(login_url='plogin')
+@login_required(login_url='signlog')
 def appointment(request):
     form = AppointmentForm(request.POST)
     if request.method == 'POST':

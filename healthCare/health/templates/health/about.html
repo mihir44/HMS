@@ -11,6 +11,145 @@
 {% block title %}About Us{% endblock %}
 
 {% block body %}
+<style type="text/css">
+/* About Section */
+.about-header {
+    background-color: #E1F5F2;
+    color: #063460;
+    padding-top: 6rem;
 
+}
+
+.about-header h1{
+    padding: 2% 0% 2% 8%;
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+.about-img{
+    width: 60%;
+}
+
+.image {
+    text-align: center;
+}
+.about-content {
+    text-align: center;
+    padding: 5% 10%;
+}
+.about-mb {
+    margin-bottom: 3%;
+}
+
+.about-content h4{
+    color:#0066ff;
+}
+
+.blue-btn {
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    border-radius: 10px;
+    text-shadow: 1px 1px 3px #666666;
+    -webkit-box-shadow: 0px 1px 3px #666666;
+    -moz-box-shadow: 0px 1px 3px #666666;
+    box-shadow: 0px 1px 3px #666666;
+    color: white;
+    font-size: 25px;
+    background: #063460;
+    padding: 11px 15px 11px 15px;
+    text-decoration: none;
+    border: none;
+  }
+
+  .blue-btn:hover {
+    background: #0099ff;
+    text-decoration: none;
+  }
+  .about-cards {
+      padding-top: 5%;
+  }
+
+  .card-1{
+      background-color: #97d9fd;
+      border: none;
+      min-height: 250px;
+
+  }
+  .card-2{
+    border: none;
+    background-color: #84affd;
+    min-height: 250px;
+  }
+  .card-3{
+    border: none;
+    background-color: #97d9fd;
+    min-height: 250px;
+  }
+  .card-title {
+      font-weight: 600;
+      padding-bottom: 1rem;
+  }
+
+  .card-text{
+      color: black;
+  }
+
+  .about-cards .card {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    padding-bottom: 3%;
+  }
+  .about-cards .card:hover{
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  .abt-active {
+      background-color: #E1F5F2;
+  }
+
+</style>
+
+<header class="about-header">
+    <div class="row">
+        <div class="col-lg-7">
+            <h1>Know more about us, We are more than any medical service</h1>
+        </div>
+        
+    </div>
+</header>
+<section class="about-content" >
+    <h1 class="about-mb">About Aim2Care</h1>
+    <h4 class="about-mb">We combine Aim2Care legacy of clinical excellence, affordable cost, and forward-looking research <br> with cutting-edge technology to make the best quality healthcare easily accessible to every Indian, online.</h4>
+    <a class="blue-btn" href="{% url 'signlog' %}">Join Now!</a>
+
+    <div class="row about-cards">
+        <div class="col-lg-4 col-md-6" >
+            <div class="card card-1" style="width: 95%;">
+                <div class="card-body">
+                  <h5 class="card-title">Doctor's Appointment Booking</h5>
+                  <p class="card-text">Search by City/Specialization/Doctor to view the doctor details and book an appointment online in 15 minutes or less, from the comfort and safety of their homes. </p>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-4 col-md-6" >
+            <div class="card card-2" style="width: 95%;">
+                <div class="card-body">
+                  <h5 class="card-title">Emergency Services</h5>
+                  <p class="card-text">We provide out-of-hospital acute care and transport to definitive care, to patients with illnesses and injuries which the patient believes constitute a medical emergency </p>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-4 col-md-6" >
+            <div class="card card-3 " style="width: 95%;">
+                <div class="card-body">
+                  <h5 class="card-title">Lab Appointment Booking</h5>
+                  <p class="card-text">Aim2Care brings the trust of Aim2Care Diagnostics right to the consumer’s doorstep, with home sample collection, same-day reports and affordable pricing on lab tests.</p>
+                </div>
+              </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

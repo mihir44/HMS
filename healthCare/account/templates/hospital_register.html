@@ -8,39 +8,228 @@
 
 
 
-{% block title %}Hospital Register{% endblock %}
+{% block title %}Hospital Login{% endblock %}
 
 {% block body %}
+<style>
+    .register {
+        background: -webkit-linear-gradient(left, #02448b, #007bff);
+        margin-top: 3%;
+        padding: 3%;
+    }
 
-<div class="register-photo">
-    
-        <div class="form-container" >
-            
-            <form method="post" action="">{% csrf_token%}
-                
-                <h2 class="text-center" style="color: #35477d;font-family: Verdana; font-size:24px;"><strong>Hospital Registration</strong></h2>
-                <h2 class="text-center" style="color: #35477d;font-family: Verdana; font-size:20px;"><strong>Create an account.</strong></h2>
-                <div class="form-group"><input class="form-control" type="text" name="hname" placeholder="Hospital name"></div>
-                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-                <div class="form-group"><input class="form-control" type="tel" name="mobile" placeholder="phone number"></div>
-                <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-                <div class="form-group"><input class="form-control" type="password" name="password-repeat" placeholder="Confirm Password"></div>
-                <div class="form-group">
-                    <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
-                </div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit"><strong>Sign Up</strong></button>
-                </div>
-                <a href="{% url 'hlogin' %}" class="already">Already have an account? <strong>Login here.</strong></a>
-            </form>
+    .register-left {
+        text-align: center;
+        color: #fff;
+        margin-top: 4%;
+    }
+
+    .register-left input {
+        border: none;
+        border-radius: 1.5rem;
+        padding: 2%;
+        width: 60%;
+        background: #f8f9fa;
+        font-weight: bold;
+        color: #ffffff;
+        margin-top: 30%;
+        margin-bottom: 3%;
+        cursor: pointer;
+    }
+
+    .register-right {
+        background: #f8f9fa;
+        border-top-left-radius: 10% 50%;
+        border-bottom-left-radius: 10% 50%;
+    }
+
+    @-webkit-keyframes mover {
+        0% {
+            transform: translateY(0);
+        }
+
+        100% {
+            transform: translateY(-20px);
+        }
+    }
+
+    @keyframes mover {
+        0% {
+            transform: translateY(0);
+        }
+
+        100% {
+            transform: translateY(-20px);
+        }
+    }
+
+    .register-left p {
+        font-weight: lighter;
+        padding: 12%;
+        margin-top: -9%;
+    }
+
+    .register .register-form {
+        padding: 10%;
+        margin-top: 10%;
+    }
+
+    .btnRegister {
+        float: right;
+        margin-top: 10%;
+        border: none;
+        border-radius: 1rem;
+        padding: 2%;
+        background: #0062cc;
+        color: #fff;
+        font-weight: 600;
+        width: 50%;
+        cursor: pointer;
+    }
+
+    .register-heading {
+        text-align: center;
+        margin-top: 8%;
+        margin-bottom: -15%;
+        color: #002549;
+    }
+
+    input[type=radio] {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0;
+        font-size: 2rem;
+    }
+</style>
+
+<!-- BLOCK 1 INFORMATION -->
+<div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <h3>Welcome</h3>
+            <p>Register your hospital now for latest appointments and emergency bookings</p>
+
         </div>
+        <div class="col-md-9 register-right">
+        <form action="" method="post">{% csrf_token%}
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">Apply as an Hospital</h3>
+                    <div class="row register-form">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="hospitalName" class="form-control"
+                                    placeholder="Hospital Name *" value="" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="address" class="form-control" placeholder="Address *"
+                                    value="" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type="tel" name="mobile" class="form-control" placeholder="Telephone no. *"
+                                    value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="Hospital Email ID. *"
+                                    value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="doctor" class="form-control" placeholder="No.of Doctors *"
+                                    value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="medical" class="form-control"
+                                    placeholder="No. of Medical Consultants *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="beds" class="form-control" placeholder="Total No. of Beds *"
+                                    value="" />
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" name="password1" class="form-control"
+                                    placeholder="Enter your password *" value="" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <div class="form-group" style="height: 2.8rem;">
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" class="custom-control-input" id="defaultInline1"
+                                            name="inlineDefaultRadiosExample">
+                                        <label class="custom-control-label" for="defaultInline1">Government</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        <input type="radio" class="custom-control-input" id="defaultInline2"
+                                            name="inlineDefaultRadiosExample">
+                                        <label class="custom-control-label" for="defaultInline2">Private</label>
+                                    </div>
+                                </div>
+
+                                <select name="location" class="form-control" style="text-align: center;">
+                                    <option class="hidden" selected disabled>Location *</option>
+                                    <option>Andheri</option>
+                                    <option>Dadar</option>
+                                    <option>Borivali</option>
+                                    <option>Vile Parle</option>
+                                    <option>Goregaon</option>
+                                    <option>Churchgate</option>
+                                    <option>Mahim</option>
+                                    <option>Grant Road</option>
+                                    <option>Santacruz</option>
+                                    <option>Lower Parel</option>
+                                    <option>Sion</option>
+                                </select>
+                            </div>
+
+
+                            <!-- Default inline 2-->
+
+                            <div class="form-group">
+                                <input name="pincode" type="tel" class="form-control" placeholder="Pin code *" value="" />
+                            </div>
+
+                            <div class="form-group">
+                                <input name="wards" type="tel" class="form-control" placeholder="No. of Private Wards *"
+                                    value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="tariff" class="form-control" placeholder="Tariff Range (₹)" value="" />
+                            </div>
+
+                            <div class="form-group">
+                                <select class="form-control" name="emergency" style="text-align: center;">
+                                    <option class="hidden" selected disabled>Emergency Service</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <input name="incharge" type="text" class="form-control" placeholder="incharge *"
+                                    value="" />
+                            </div>
+                            <div class="form-group">
+                                <input name="password2" type="password" class="form-control" placeholder="Confirm password *" value="" />
+                            </div>
+
+                            <input type="submit" class="btnRegister" value="Submit" />
+                        </div>
+
+                    </div>
+                </div>
+            
+            </div>
+        </form>
+        </div>
+    </div>
+
 </div>
 
-
-
-<!--<script src="{%static 'health/js/jquery-3.3.1.min.js' %}"></script>-->
-<!--<script src="{%static 'health/js/popper.min.js' %}"></script>-->
-<!--<script src="{%static 'health/js/bootstrap.min.js' %}"></script>-->
-<!--<script src="{%static 'health/js/jquery.validate.min.js' %}"></script>-->
-<!-- <script src="js/main.js"></script> -->
 
 {% endblock %}

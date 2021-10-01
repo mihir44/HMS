@@ -58,11 +58,25 @@ def plogin(request):
 @unauthenticated_user
 def hregister(request):
     if request.method == 'POST':
-        username = request.POST['hname']
+        username = request.POST['hospitalName']
         phone_number = request.POST['mobile']
-        password1 = request.POST['password']
-        password2 = request.POST['password-repeat']
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
         email = request.POST['email']
+        address = request.POST['address']
+        # if request.POST.get['location']:
+        #     location = request.POST.get['location']
+        location = request.POST['location']
+        pincode = request.POST['pincode']
+        wards = request.POST['wards']
+        doctors = request.POST['doctor']
+        # if request.POST.get['emergency']:
+        #     emergency = request.POST.get['emergency']
+        emergency = request.POST['emergency']
+        tariff = request.POST['tariff']
+        medical = request.POST['medical']
+        beds = request.POST['beds']
+        incharge = request.POST['incharge']
 
         if password1 == password2:
             if User.objects.filter(username=username).exists():
@@ -75,7 +89,9 @@ def hregister(request):
                 user = User.objects.create_user(username=username, password=password1, email=email,is_hospital = True)
                 user.save()
                 user_name = User.objects.filter(username=username)[0]
-                hospital = Hospital.objects.create(doctor=user_name, phone_number=phone_number)
+                hospital = Hospital.objects.create(doctor=user_name, mobile=phone_number,address=address,location=location,
+                                                   pincode=pincode, wards=wards, doctors=doctors, emergency=emergency, tariff=tariff,
+                                                   medical=medical, beds=beds, incharge=incharge)
                 hospital.save()
                 return redirect('hlogin')
         else:

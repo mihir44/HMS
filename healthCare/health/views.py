@@ -41,18 +41,18 @@ def about(request):
     return render(request, 'health/about.html')
 
 
-# @login_required(login_url='signlog')
+@login_required(login_url='signlog')
 def lab1(request):
     return render(request, 'health/lab1.html')
 
 
-# @login_required(login_url='signlog')
+@login_required(login_url='signlog')
 def lab2(request):
     prds = Product.get_all_products()
     return render(request, 'health/lab2.html', {'products' : prds})
 
 
-# @login_required(login_url='signlog')
+@login_required(login_url='signlog')
 def lab3(request):
     return render(request, 'health/lab3.html')
 

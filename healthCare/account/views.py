@@ -36,7 +36,8 @@ def pregister(request):
                                                 first_name=first_name, last_name=last_name,is_patient = True)
                 user.save()
                 user_name = User.objects.filter(username=username)[0]
-                patient = Patient.objects.create(user=user_name, )
+                patient = Patient.objects.create(user=user_name, mobile=mobile, gender=gender, address=address,location=location,
+                                                 pincode=pincode, dob=dob, history=history, marital_status=status)
                 patient.save()
                 return redirect('plogin')
         else:

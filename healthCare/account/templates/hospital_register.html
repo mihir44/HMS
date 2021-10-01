@@ -8,7 +8,7 @@
 
 
 
-{% block title %}Hospital Login{% endblock %}
+{% block title %}Hospital Registration{% endblock %}
 
 {% block body %}
 <style>
@@ -111,121 +111,124 @@
 
         </div>
         <div class="col-md-9 register-right">
-        <form action="" method="post">{% csrf_token%}
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <h3 class="register-heading">Apply as an Hospital</h3>
-                    <div class="row register-form">
+            <form action="" method="post">{% csrf_token%}
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading">Apply as an Hospital</h3>
+                        <div class="row register-form">
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" name="hospitalName" class="form-control"
-                                    placeholder="Hospital Name *" value="" />
-                            </div>
-
-                            <div class="form-group">
-                                <input type="text" name="address" class="form-control" placeholder="Address *"
-                                    value="" />
-                            </div>
-
-                            <div class="form-group">
-                                <input type="tel" name="mobile" class="form-control" placeholder="Telephone no. *"
-                                    value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder="Hospital Email ID. *"
-                                    value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" name="doctor" class="form-control" placeholder="No.of Doctors *"
-                                    value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" name="medical" class="form-control"
-                                    placeholder="No. of Medical Consultants *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" name="beds" class="form-control" placeholder="Total No. of Beds *"
-                                    value="" />
-                            </div>
-
-                            <div class="form-group">
-                                <input type="password" name="password1" class="form-control"
-                                    placeholder="Enter your password *" value="" />
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-
-                                <div class="form-group" style="height: 2.8rem;">
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" class="custom-control-input" id="defaultInline1"
-                                            name="inlineDefaultRadiosExample">
-                                        <label class="custom-control-label" for="defaultInline1">Government</label>
-                                    </div>
-                                    <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" class="custom-control-input" id="defaultInline2"
-                                            name="inlineDefaultRadiosExample">
-                                        <label class="custom-control-label" for="defaultInline2">Private</label>
-                                    </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="hospitalName" class="form-control"
+                                        placeholder="Hospital Name *" value="" />
                                 </div>
 
-                                <select name="location" class="form-control" style="text-align: center;">
-                                    <option class="hidden" selected disabled>Location *</option>
-                                    <option>Andheri</option>
-                                    <option>Dadar</option>
-                                    <option>Borivali</option>
-                                    <option>Vile Parle</option>
-                                    <option>Goregaon</option>
-                                    <option>Churchgate</option>
-                                    <option>Mahim</option>
-                                    <option>Grant Road</option>
-                                    <option>Santacruz</option>
-                                    <option>Lower Parel</option>
-                                    <option>Sion</option>
-                                </select>
+                                <div class="form-group">
+                                    <input type="text" name="address" class="form-control" placeholder="Address *"
+                                        value="" />
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="tel" name="mobile" class="form-control" placeholder="Telephone no. *"
+                                        value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control"
+                                        placeholder="Hospital Email ID. *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" name="doctor" class="form-control" placeholder="No.of Doctors *"
+                                        value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" name="medical" class="form-control"
+                                        placeholder="No. of Medical Consultants *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" name="beds" class="form-control" placeholder="Total No. of Beds *"
+                                        value="" />
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="password" name="password1" class="form-control"
+                                        placeholder="Enter your password *" value="" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <div class="form-group" style="height: 2.8rem;">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" class="custom-control-input" id="defaultInline1"
+                                                name="inlineDefaultRadiosExample">
+                                            <label class="custom-control-label" for="defaultInline1">Government</label>
+                                        </div>
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            <input type="radio" class="custom-control-input" id="defaultInline2"
+                                                name="inlineDefaultRadiosExample">
+                                            <label class="custom-control-label" for="defaultInline2">Private</label>
+                                        </div>
+                                    </div>
+
+                                    <select name="location" class="form-control" style="text-align: center;">
+                                        <option class="hidden" selected disabled>Location *</option>
+                                        <option>Andheri</option>
+                                        <option>Dadar</option>
+                                        <option>Borivali</option>
+                                        <option>Vile Parle</option>
+                                        <option>Goregaon</option>
+                                        <option>Churchgate</option>
+                                        <option>Mahim</option>
+                                        <option>Grant Road</option>
+                                        <option>Santacruz</option>
+                                        <option>Lower Parel</option>
+                                        <option>Sion</option>
+                                    </select>
+                                </div>
+
+
+                                <!-- Default inline 2-->
+
+                                <div class="form-group">
+                                    <input name="pincode" type="tel" class="form-control" placeholder="Pin code *"
+                                        value="" />
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="wards" type="tel" class="form-control"
+                                        placeholder="No. of Private Wards *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" name="tariff" class="form-control" placeholder="Tariff Range (₹)"
+                                        value="" />
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" name="emergency" style="text-align: center;">
+                                        <option class="hidden" selected disabled>Emergency Service</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <input name="incharge" type="text" class="form-control" placeholder="incharge *"
+                                        value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input name="password2" type="password" class="form-control"
+                                        placeholder="Confirm password *" value="" />
+                                </div>
+
+                                <input type="submit" class="btnRegister" value="Submit" />
                             </div>
 
-
-                            <!-- Default inline 2-->
-
-                            <div class="form-group">
-                                <input name="pincode" type="tel" class="form-control" placeholder="Pin code *" value="" />
-                            </div>
-
-                            <div class="form-group">
-                                <input name="wards" type="tel" class="form-control" placeholder="No. of Private Wards *"
-                                    value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" name="tariff" class="form-control" placeholder="Tariff Range (₹)" value="" />
-                            </div>
-
-                            <div class="form-group">
-                                <select class="form-control" name="emergency" style="text-align: center;">
-                                    <option class="hidden" selected disabled>Emergency Service</option>
-                                    <option>Yes</option>
-                                    <option>No</option>
-
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <input name="incharge" type="text" class="form-control" placeholder="incharge *"
-                                    value="" />
-                            </div>
-                            <div class="form-group">
-                                <input name="password2" type="password" class="form-control" placeholder="Confirm password *" value="" />
-                            </div>
-
-                            <input type="submit" class="btnRegister" value="Submit" />
                         </div>
-
                     </div>
+
                 </div>
-            
-            </div>
-        </form>
+            </form>
         </div>
     </div>
 

@@ -8,8 +8,38 @@ class User(AbstractUser):
     is_hospital = models.BooleanField(default=False)
 
 class Patient(models.Model):
-    phone_number = models.IntegerField()
+    sex = (
+        ("male", "Male"),
+        ("female", "Female"),
+        ("transgender", "Transgender")
+    )
     user = models.ForeignKey(User, related_name='user',on_delete=models.CASCADE,)
+    mobile = models.IntegerField()
+    gender = models.CharField(choices=sex, default="male", max_length=15)
+    address = models.CharField(max_length=250, default="")
+    locations = (
+        ('andheri', 'Andheri'),
+        ('dadar', 'Dadar'),
+        ('borivali', 'Borivali'),
+        ('vile parle', 'Vile Parle'),
+        ('goregaon', 'Goregaon'),
+        ('churchgate', 'Churchgate'),
+        ('mahim', 'Mahim'),
+        ('grant road', 'Grant Road'),
+        ('santacruz', 'Santacruz'),
+        ('lower parel', 'Lower Parel'),
+        ('sion', 'Sion'),
+    )
+    location = models.CharField(max_length=25, choices=locations, default="location")
+    pincode = models.IntegerField()
+    dob = models.DateField(auto_now=False, auto_now_add=False)
+    history = models.CharField(max_length=250, default="")
+    status = (
+        ('single','Single'),
+        ('married','Married'),
+        ('widow','Widow')
+    )
+    marital_status = models.CharField(max_length=15,default='single')
 
 class Hospital(models.Model):
     doctor = models.ForeignKey(User,on_delete=models.CASCADE)
@@ -20,7 +50,6 @@ class Hospital(models.Model):
         ('borivali', 'Borivali'),
         ('vile parle', 'Vile Parle'),
         ('goregaon', 'Goregaon'),
-        ('goregaon', 'Goregaon'),
         ('churchgate', 'Churchgate'),
         ('mahim', 'Mahim'),
         ('grant road', 'Grant Road'),
@@ -28,7 +57,7 @@ class Hospital(models.Model):
         ('lower parel', 'Lower Parel'),
         ('sion', 'Sion'),
     )
-    location = models.CharField(max_length=20, choices=locations, default="location")
+    location = models.CharField(max_length=25, choices=locations, default="location")
     mobile = models.IntegerField()
     pincode = models.IntegerField()
     wards = models.IntegerField()

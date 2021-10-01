@@ -12,10 +12,18 @@ def pregister(request):
         first_name = request.POST['fname']
         last_name = request.POST['lname']
         username = request.POST['username']
-        phone_number = request.POST['mobile']
+        mobile = request.POST['mobile']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
         email = request.POST['email']
+        address = request.POST['address']
+        location = request.POST['location']
+        pincode = request.POST['pincode']
+        gender = request.POST['gender']
+        history = request.POST['history']
+        status = request.POST['mStatus']
+        dob = request.POST['dob']
+
         if password1 == password2:
             if User.objects.filter(username=username).exists():
                 messages.info(request, 'Username Taken')
@@ -28,7 +36,7 @@ def pregister(request):
                                                 first_name=first_name, last_name=last_name,is_patient = True)
                 user.save()
                 user_name = User.objects.filter(username=username)[0]
-                patient = Patient.objects.create(user=user_name, phone_number=phone_number)
+                patient = Patient.objects.create(user=user_name, )
                 patient.save()
                 return redirect('plogin')
         else:
@@ -64,14 +72,10 @@ def hregister(request):
         password2 = request.POST['password2']
         email = request.POST['email']
         address = request.POST['address']
-        # if request.POST.get['location']:
-        #     location = request.POST.get['location']
         location = request.POST['location']
         pincode = request.POST['pincode']
         wards = request.POST['wards']
         doctors = request.POST['doctor']
-        # if request.POST.get['emergency']:
-        #     emergency = request.POST.get['emergency']
         emergency = request.POST['emergency']
         tariff = request.POST['tariff']
         medical = request.POST['medical']

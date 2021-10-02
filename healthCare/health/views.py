@@ -6,8 +6,10 @@ from django.core.mail import send_mail, EmailMessage
 from django.contrib.auth.decorators import login_required
 from .models import Contact
 from .models import Product
+from .models import Category
 from django.contrib import messages
 from django.contrib.auth import authenticate,login, logout
+from django.views import View
 
 # Create your views here.
 def index(request):
@@ -46,10 +48,25 @@ def lab1(request):
     return render(request, 'health/lab1.html')
 
 
-@login_required(login_url='signlog')
-def lab2(request):
-    prds = Product.get_all_products()
-    return render(request, 'health/lab2.html', {'products' : prds})
+# @login_required(login_url='signlog')
+class lab2(View):
+
+    def post(self, request):
+        product= request.POST.get('product')
+    
+    def get(self, request):
+        products = None
+        categories = Category.get_all_categories()
+        categoryID =request.GET.get('category')
+        if categoryID:
+            products = Product.get_all_products_by_categoryid(categoryID)
+        else:
+            products = Product.get_all_products()
+
+        data={}
+        data['products'] = products
+        data['categories']=categories
+        return render(request, 'health/lab2.html', data)
 
 
 @login_required(login_url='signlog')

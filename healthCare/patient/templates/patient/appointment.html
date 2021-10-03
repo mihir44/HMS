@@ -4,9 +4,11 @@
 {% block title %}Home{% endblock %}
 {% block body %}
 <div class="container">
+    <form action="" method="post">
         {% csrf_token %}
-<!--        {{form | crispy}}-->
-    {% crispy form %}
-
+        {{form | crispy}}
+<!--    {% crispy form %}-->
+    <input class="btn btn-primary" type="submit">
+</form>
 </div>
 {% endblock %}

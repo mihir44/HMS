@@ -5,8 +5,8 @@ from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.contrib.auth.models import User
 from crispy_forms.helper import FormHelper
 from .models import Patient_profile, Appointment
-from account.models import User
-from django.forms import ModelForm
+from account.models import User, Patient, Hospital
+from django.forms import ModelForm, widgets, DateInput
 import account.models
 
 class EditPatientProfile(UserChangeForm):
@@ -23,12 +23,18 @@ class Patient_details(ModelForm):
 class AppointmentForm(forms.ModelForm):
     class Meta:
         model = Appointment
-        fields = ('hospital', 'date', 'timeslot', 'patient_name',)
+        fields = '__all__'
+        widgets = {
+            'date' : DateInput(attrs={'type': 'date'})
+        }
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.add_input(Submit("bookAppointment", "Book your appointment",css_class='btn btn-primary my-3'))
+        super(AppointmentForm, self).__init__(*args, **kwargs)
+        self.fields['patient'].queryset = User.objects.filter(is_patient = True)
+        self.fields['hospital'].queryset = User.objects.filter(is_hospital = True)
+        self.fields["date"].label = "Date (YYYY-MM-DD)"
+        self.fields["timeslot"].label = "Time 24 hr (HH:MM)"
+        # self.helper.add_input(Submit("bookAppointment", "Book your appointment",css_class='btn btn-primary my-3'))
 
 
 

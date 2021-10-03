@@ -41,6 +41,9 @@ class Patient(models.Model):
     )
     marital_status = models.CharField(max_length=15,default='single')
 
+    def get_id(self):
+        return self.user
+
 class Hospital(models.Model):
     doctor = models.ForeignKey(User,on_delete=models.CASCADE)
     address = models.CharField(max_length=250, default="")

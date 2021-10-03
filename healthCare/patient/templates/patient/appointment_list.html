@@ -1,0 +1,28 @@
+{% extends 'health/basic.html' %}
+{% block title %}Home{% endblock %}
+{% block body %}
+{% load static %}
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Your Appointments</h6>
+    </div>
+  <table class="table table-striped">
+            <thead>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Patient Info</th>
+            </thead>
+            {% for obj in object_list %}
+            <tr>
+                <td>{{ obj.date }}</td>
+                <td>{{ obj.timeslot }}</td>
+                <td>{{ obj.patient }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+  </div>
+</div>
+
+{% endblock %}

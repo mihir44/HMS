@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserChangeForm
 from .forms import EditPatientProfile, Patient_details, AppointmentForm
 
@@ -22,10 +22,12 @@ def profile(request):
 
 @login_required(login_url='signlog')
 def appointment(request):
-    form = AppointmentForm(request.POST)
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
         if form.is_valid():
-            form.save()
-    context = {'form': form}
-    return render(request,'patient/appointment.html',context)
+            appointment = form.save(commit=False)
+            appointment.save()
+            return redirect('/')
+    else:
+        form = AppointmentForm()
+    return render(request, 'patient/appointment.html', {'form': form})

@@ -10,15 +10,16 @@
   <title>{% block title %}{% endblock %}</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.4.6/tailwind.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+<!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
   <link rel="stylesheet" href="{%static 'health/fonts/icomoon/style.css' %}">
   <link rel="stylesheet" href="{%static 'health/css/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{%static 'health/css/lightslider.css' %}">
   <link rel="stylesheet" href="{%static 'health/css/style.css' %}">
   <link rel="stylesheet" href="{%static 'health/css/redesign.css' %}">
-  <link rel="stylesheet" href="{%static 'health/css/design.css' %}">
+<!--  <link rel="stylesheet" href="{%static 'health/css/design.css' %}">-->
   <link rel="stylesheet" href="{%static 'health/css/hospitalSlider.css' %}">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 
 
   <style type="text/css">
@@ -178,6 +179,12 @@
   <script src="{%static 'health/js/bootstrap.min.js' %}"></script>
   <script src="{%static 'health/js/jquery.validate.min.js' %}"></script>
   <script src="{%static 'health/js/lightslider.js' %}"></script>
+  <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready( function () {
+      $('#appointment').DataTable();
+     } );
+  </script>
 <!--  <script src="{%static 'health/js/jquery.waypoints.min.js' %}"></script>-->
 <!--  <script src="{%static 'health/js/theme.js' %}"></script>-->
 <!--  <script src="{%static 'health/js/waypoints.min.js' %}"></script>-->

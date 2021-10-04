@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, reverse
 from django.contrib.auth.forms import UserChangeForm
+from .models import Appointment
 from .forms import EditPatientProfile, Patient_details, AppointmentForm
 
 
@@ -27,7 +28,17 @@ def appointment(request):
         if form.is_valid():
             appointment = form.save(commit=False)
             appointment.save()
-            return redirect('/')
+            return redirect('appointment')
     else:
         form = AppointmentForm()
     return render(request, 'patient/appointment.html', {'form': form})
+
+def patient_appointment_list(request):
+    appointments = Appointment.objects.filter(patient=request.user)
+    print(appointments)
+    return render(request, 'patient/appointment_list.html', {'appointments': appointments})
+
+def patient_withdraw_appointment(request, pk):
+    appointment = Appointment.objects.get(id=pk)
+    appointment.delete()
+    return redirect('patient-view-appointment')

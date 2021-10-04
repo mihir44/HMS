@@ -1,28 +1,40 @@
 {% extends 'health/basic.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
 {% block title %}Home{% endblock %}
 {% block body %}
-{% load static %}
-
 <div class="container">
   <div class="panel panel-primary">
     <div class="panel-heading">
       <h6 class="panel-title">Your Appointments</h6>
     </div>
-  <table class="table table-striped">
-            <thead>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Patient Info</th>
-            </thead>
-            {% for obj in object_list %}
-            <tr>
-                <td>{{ obj.date }}</td>
-                <td>{{ obj.timeslot }}</td>
-                <td>{{ obj.patient }}</td>
-            </tr>
-            {% endfor %}
-        </table>
+    <table class="table table-hover"  id="appointment">
+      <thead>
+        <tr>
+          <th>Hospital Name</th>
+          <th>Appointment Date</th>
+          <th>Time Slot</th>
+          <th>Status</th>
+          <th>Withdraw</th>
+        </tr>
+      </thead>
+      {% for a in appointments %}
+      <tr>
+        <td>{{a.hospital}}</td>
+<!--        <td> <img src="{% static p.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>-->
+        <td>{{a.date}}</td>
+<!--        <td>{{p.mobile}}</td>-->
+        <td>{{a.timeslot}}</td>
+        {% if a.status %}
+        <td>Approved!</td>
+        <td>You cannot withdraw</td>
+        {% else %}
+        <td>Pending</td>
+        <td><a href="{% url 'patient_withdraw_appointment' a.id %}" class="btn btn-danger">Withdraw</a></td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </table>
   </div>
 </div>
-
 {% endblock %}

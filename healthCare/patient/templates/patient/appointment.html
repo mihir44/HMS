@@ -7,8 +7,17 @@
     <form action="" method="post">
         {% csrf_token %}
         {{form | crispy}}
-<!--    {% crispy form %}-->
-    <input class="btn btn-primary" type="submit">
-</form>
+        <!--    {% crispy form %}-->
+        <div class="row">
+            <div class="col-xs-6 mx-3">
+                <input class="btn btn-primary" type="submit">
+            </div>
+            <div class="col-xs-6 mx-3">
+                <a href="{% url 'patient-view-appointment' %}" class="btn btn-primary">View history</a>
+            </div>
+        </div>
+    </form>
 </div>
+
+
 {% endblock %}

@@ -28,12 +28,14 @@ class AppointmentForm(forms.ModelForm):
             'date' : DateInput(attrs={'type': 'date'})
         }
 
+
     def __init__(self, *args, **kwargs):
         super(AppointmentForm, self).__init__(*args, **kwargs)
         self.fields['patient'].queryset = User.objects.filter(is_patient = True)
         self.fields['hospital'].queryset = User.objects.filter(is_hospital = True)
         self.fields["date"].label = "Date (YYYY-MM-DD)"
         self.fields["timeslot"].label = "Time 24 hr (HH:MM)"
+        self.fields["status"].widget = forms.HiddenInput()
         # self.helper.add_input(Submit("bookAppointment", "Book your appointment",css_class='btn btn-primary my-3'))
 
 

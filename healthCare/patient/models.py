@@ -37,9 +37,10 @@ class Appointment(models.Model):
         hospital = models.ForeignKey(User, on_delete=models.CASCADE, related_name='doctor')
         date = models.DateField()
         timeslot = models.CharField(choices=TIMESLOT_LIST, default="", max_length=25)
+        status = models.BooleanField(default=False)
 
 
         def __str__(self):
-            return "Patient - {} Doc- {} At {} {}".format(self.patient, self.hospital, self.date, self.timeslot)
+            return "Patient - {} Doc- {} At {} {} status- {}".format(self.patient, self.hospital, self.date, self.timeslot,self.status)
 
 

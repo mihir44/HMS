@@ -10,9 +10,10 @@
 
 
 
-{% block title %}Book Lab{% endblock %}
+{% block title %}Lab Products{% endblock %}
 
 {% block body %}
+
 
 <style type="text/css">
 .bg-cover {
@@ -68,14 +69,20 @@ section{
 	display:block;
 }
 
+.navbar-nav{
+  font-size: 17px;
+    font-weight: bold;
+    color: black;
+}
+
 
 </style>
 
-
+<!-- 
 <nav class="one-edge-shadow sticky-top navbar navbar-expand-lg navbar-light" style="background-color: #007bff;">
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link">AIM 2 <span class="sr-only">(current)</span></a>
+          <a class="nav-link">AIM  2<span class="sr-only">(current)</span></a>
         </li>
   
       </ul>
@@ -84,7 +91,7 @@ section{
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link">CARE <span class="sr-only">(current)</span></a>
+        <a class="nav-link">CARE<span class="sr-only">(current)</span></a>
       </li>
 
     </ul>
@@ -98,12 +105,7 @@ section{
       </li>
       {% if request.session.customer %}
       
-      <li class="nav-item ">
-        <a class="nav-link" href="/orders">Orders<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
-      </li>
+      
       {% else %}
      
       
@@ -111,7 +113,7 @@ section{
 
     </ul>
   </div>
-</nav>
+</nav> -->
 
 <div style="background: url(https://www.eurofins-technologies.com/pub/media/catalog/category/covid-19-header.jpg)" class="jumbotron bg-cover text-white">
     <div class="container py-5 text-center">
@@ -120,49 +122,45 @@ section{
     </div>
 </div>
 
-<div class="container">
-    <br/>
-	<div class="row justify-content-center">
-                        <div class=" col-lg-8">
-                            <form class="card card-sm">
-                                <div class="card-body row no-gutters align-items-center" style="padding:0.5rem">
+<!-- 
 
-                        
-                                    <div class="col" >
-                                        <input class="form-control form-control-lg form-control-borderless" style="border: none;" type="search" placeholder="Search test or condition">
-                                    </div>
-                                    <!--end of col-->
-                                    <div class="col-auto" >
-                                        <button class="btn btn-lg btn-success" style="color: #35477d;" type="submit" >Search</button>
-                                    </div>
-                                    <!--end of col-->
-                                </div>
-                            </form>
+<div class="container-fluid mt-3">
+<div class="row"> -->
 
-                            
-                        </div>
-                        <!--end of col-->
-                    </div>
-</div>
+<!-- filter
+<div class="col-lg-2 mx-auto mt-5">
+  <div class="list-group">
+
+    <a href="/lab2" class="list-group-item list-group-item-action">All Products</a>
+
+    {% for category in categories %}
+    <a href="?category={{category.id}}"class="list-group-item list-group-item-action">{{category.name}}</a>
+    {% endfor %}
+  </div>
+</div> -->
+
+<!-- PRODUCTS -->
 
 <div class="container-fluid">
-<div class="row mx-auto">
-{% for product in products %}
-<div class="card mx-auto mb-3 mt-5" style="width: 18rem;">
-    <img class="card-img-top" src='{{product.image.url}}' alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title" style="color: black;">{{product.name}}</h5>
-      <p class="card-text" style="color: black;">{{product.category.name}}</p>
-      <p class="card-text" style="color: black;">₹ {{product.price}}</p>
-      <p class="card-text" style="color: black;">{{product.description}}</p>
-    
-      <a href="#" class="btn btn-primary border ">Add to Cart</a>
-    
+  <div class="row mx-auto">
+    {% for product in products %}
+    <div class="card mx-auto mb-3 mt-5" style="width: 18rem;">
+        <img class="card-img-top mt-2" src='{{product.image.url}}' alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title" style="color: black;">{{product.name}}</h5>
+          <p class="card-text" style="color: black;">{{product.category.name}}</p>
+          <p class="card-text" style="color: black;">{{product.price}}</p>
+          <p class="card-text" style="color: black;">{{product.description}}</p>
+          
+        </div>
+
     </div>
+  
+    {% endfor %}
+  </div>
+
 </div>
-{% endfor %}
-</div>
-</div>
+
 
   
 

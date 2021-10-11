@@ -86,8 +86,8 @@
               <li class="{% if url_name == 'patient_profile'%}active {% endif %}"><a href="{% url 'patient_profile' %}">Hello, {{user.username}}</a></li>
               <li><a href="{% url 'logout' %}">Logout</a></li>
               {% elif user.is_authenticated and user.is_hospital %}
-              <li class="{% if url_name == 'hospital_profile'%}active {% endif %}"><a href="{% url 'hospital_profile' %}">Hello, {{user.username}}</a></li>
-              <li><a href="{% url 'logout' %}">Logout</a></li>
+              <li class="{% if url_name == 'hospital_profile'%}active {% endif %}"><a href="{% url 'hospital_profile' %}"><strong>Hello, {{user.username}}</strong></a></li>
+              <li><a href="{% url 'logout' %}" style="padding-left: 1rem;">Logout</a></li>
               {% else %}
               <li class="{% if url_name == 'signlog'%}active {% endif %}"><a href="{% url 'signlog' %}"><span>Sign
                     Up/Login</span></a></li>
@@ -134,44 +134,18 @@
   {% block body %} {% endblock %}
 
   <!-- FOOTER> -->
-  <footer class=" text-center text-white" style="box-shadow: 0 2px 10px 0 rgb(0 0 0 / 70%)" ;>
-    <!-- Grid container -->
-    <div class="container p-1 pb-0" style="height: 50px;">
-      <!-- Section: Social media -->
-      <section class="p-1">
-        <!-- Facebook -->
-        <ul class="list-unstyled text-center">
-      <li class="list-inline-item"   style="background-color: #35477d;" >
-        <a href="#" class="btn-floating btn-fb m-1 p-1" >
-          <i class="fab fa-facebook-f"> </i>
-        </a>
-      </li>
-      <li class="list-inline-item" style="background-color: #35477d;">
-        <a href="#" class="btn-floating btn-tw m-1 p-1">
-          <i class="fab fa-twitter"> </i>
-        </a>
-      </li>
-      <li class="list-inline-item" style="background-color: #35477d;">
-        <a href="#" class="btn-floating btn-gplus m-1 p-1">
-          <i class="fab fa-instagram"> </i>
-        </a>
-      </li>
-      <li class="list-inline-item" style="background-color: #35477d;">
-        <a href="#" class="btn-floating btn-li m-1 p-1">
-          <i class="fab fa-linkedin-in"> </i>
-        </a>
-      </li>
-      
-    </ul>
-    <!-- Social buttons -->
-      </section>
-      <!-- Section: Social media -->
-    </div>
-    <div class="text-center p-1" style="background-color: #35477d;height: 35px;">
-      © Aim2Care Copyright 2021
-    </div>
 
-  </footer>
+  <!-- Footer -->
+<!-- <footer class="page-footer font-small special-color-dark pt-4" >
+ 
+  <div class="footer-copyright text-center py-3" style="background-color: #35477d;height: 55px;padding-top: rem;">
+    <p style="color: #f4f6fa;font-weight: bold;" >© Aim2Care Copyright 2021</p>
+  </div>
+  
+
+</footer> -->
+<!-- Footer -->
+  
 
 
   <script src="{%static 'health/js/jquery-3.3.1.min.js' %}"></script>

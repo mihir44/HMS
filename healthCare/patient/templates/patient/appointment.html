@@ -9,14 +9,20 @@
         {{form | crispy}}
         <!--    {% crispy form %}-->
         <div class="row">
-            <div class="col-xs-6 mx-3">
-                <input class="btn btn-primary" type="submit">
+            <div class="col-xs-6 mx-3 form-group">
+                <input type="submit" value="Send Message" class="btn btn-primary rounded-0 py-2 px-4">
+                <span class="submitting"></span>
+                
             </div>
             <div class="col-xs-6 mx-3">
                 <a href="{% url 'patient-view-appointment' %}" class="btn btn-primary">View history</a>
             </div>
         </div>
     </form>
+     <div id="form-message-warning mt-4"></div>
+          <div id="form-message-success">
+            Your message was sent, thank you!
+          </div>
 </div>
 
 

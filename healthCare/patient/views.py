@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect, reverse
 from django.contrib.auth.forms import UserChangeForm
 from .models import Appointment
+from django.contrib import messages
 from .forms import EditPatientProfile, Patient_details, AppointmentForm
 
 
@@ -28,6 +29,7 @@ def appointment(request):
         if form.is_valid():
             appointment = form.save(commit=False)
             appointment.save()
+            messages.success(request, 'Aim2Care booked your appointment! Check status in View History')
             return redirect('appointment')
     else:
         form = AppointmentForm()
@@ -42,3 +44,11 @@ def patient_withdraw_appointment(request, pk):
     appointment = Appointment.objects.get(id=pk)
     appointment.delete()
     return redirect('patient-view-appointment')
+
+
+@login_required(login_url='signlog')
+def lab1(request):
+    return render(request, 'patient/lab1.html')
+
+def lab2(request):
+    return render(request, 'patient/lab2.html')

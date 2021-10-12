@@ -78,42 +78,7 @@ section{
 
 </style>
 
-<!-- 
-<nav class="one-edge-shadow sticky-top navbar navbar-expand-lg navbar-light" style="background-color: #007bff;">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link">AIM  2<span class="sr-only">(current)</span></a>
-        </li>
-  
-      </ul>
-  
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link">CARE<span class="sr-only">(current)</span></a>
-      </li>
-
-    </ul>
-
-
-    <ul class=" navbar-nav my-2 my-lg-0">
-      <li class="nav-item ">
-        <a class="nav-link" href="/cart">Cart 
-          <span class="badge badge-info">{{request.session.cart.keys|length}}</span>
-          <span class="sr-only">(current)</span></a>
-      </li>
-      {% if request.session.customer %}
-      
-      
-      {% else %}
-     
-      
-      {% endif %}
-
-    </ul>
-  </div>
-</nav> -->
 
 <div style="background: url(https://www.eurofins-technologies.com/pub/media/catalog/category/covid-19-header.jpg)" class="jumbotron bg-cover text-white">
     <div class="container py-5 text-center">
@@ -122,43 +87,44 @@ section{
     </div>
 </div>
 
-<!-- 
 
 <div class="container-fluid mt-3">
-<div class="row"> -->
+<div class="row"> 
 
-<!-- filter
-<div class="col-lg-2 mx-auto mt-5">
-  <div class="list-group">
+  <!-- filter -->
+  <div class="col-lg-2 mx-auto mt-5">
+    <div class="list-group">
 
-    <a href="/lab2" class="list-group-item list-group-item-action">All Products</a>
+      <a href="lab2" class="list-group-item list-group-item-action">All Products</a>
 
-    {% for category in categories %}
-    <a href="?category={{category.id}}"class="list-group-item list-group-item-action">{{category.name}}</a>
-    {% endfor %}
-  </div>
-</div> -->
+      {% for category in categories %}
+      <a href="?category={{category.id}}"class="list-group-item list-group-item-action">{{category.name}}</a>
+      {% endfor %}
+    </div>
+  </div> 
 
 <!-- PRODUCTS -->
 
-<div class="container-fluid">
-  <div class="row mx-auto">
-    {% for product in products %}
-    <div class="card mx-auto mb-3 mt-5" style="width: 18rem;">
-        <img class="card-img-top mt-2" src='{{product.image.url}}' alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title" style="color: black;">{{product.name}}</h5>
-          <p class="card-text" style="color: black;">{{product.category.name}}</p>
-          <p class="card-text" style="color: black;">{{product.price}}</p>
-          <p class="card-text" style="color: black;">{{product.description}}</p>
-          
-        </div>
+  <div id=products class="col-lg-9 mx-auto">
+    <div class="row mx-auto">
+      {% for product in products %}
+      <div class="card mx-auto mb-3 mt-5" style="width: 18rem;">
+          <img class="card-img-top mt-2" src='{{product.image.url}}' alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title" style="color: black;">{{product.name}}</h5>
+            <p class="card-text" style="color: black;">{{product.category.name}}</p>
+            <p class="card-text" style="color: black;">{{product.price}}</p>
+            <p class="card-text" style="color: black;">{{product.description}}</p>
+            
+          </div>
 
+      </div>
+    
+      {% endfor %}
     </div>
-  
-    {% endfor %}
-  </div>
 
+  </div>
+</div>
 </div>
 
 

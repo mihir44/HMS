@@ -1,0 +1,169 @@
+{% extends 'health/basic.html' %}
+
+{% load static %}
+
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+
+
+
+{% block title %}Lab Products{% endblock %}
+
+{% block body %}
+{% load cart %}
+{% load custom_filter %}
+
+
+<nav class="one-edge-shadow navbar navbar-expand-lg navbar-light" style="background-color: #35477d;height: 2rem;">
+ 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/patient/lab2" style="color: #ffffff; font-weight: bold; font-size: 15px;">AIM 2 CARE DIAGNOSTIC LAB</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="/patient/orders" style="color: #ffffff; font-weight: 100; font-size: 15px;">Your Orders</a>
+      </li>
+  
+    </ul>
+  
+  
+    <ul class=" navbar-nav my-2 my-lg-0">
+      <li class="nav-item ">
+        
+        <a class="nav-link" href="/patient/cart" style="color: #ffffff;font-weight: 200;font-size: 15px;">Cart 
+          <span class="badge badge-info" style="background-color: #8396ff">{{request.session.cart.keys|length}}</span>
+          <span class="sr-only"  >(current)</span></a>
+      </li>
+      
+  
+    </ul>
+  </div>
+  </nav> 
+
+
+
+<div class="container">
+    <div class="border rounded p-4 m-4">
+         <p class="display-4 pl-4 ml-4">Your Cart</p>
+         <hr>
+         <table class="table">
+             <thead>
+                 <tr>
+                     <th>Sno.</th>
+                     <th>Image</th>
+                     <th>Product</th>
+                     <th>Price</th>
+                     <th>Quantity</th>
+                     <th>Total</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 
+                 {% for product in products %}
+                 <tr>
+                     <td>{{forloop.counter}}</td>
+                     <td><img style="height: 80px;" class="rounded-circle" src="{{product.image.url}}" alt=""></td>
+                     <td>{{product.name}}</td>
+                     <td>{{product.price|currency}}</td>
+                     <td>{{product|cart_quantity:request.session.cart}}</td>
+                     <td>{{product|price_total:request.session.cart|currency}}</td>
+                 </tr>
+ 
+                 {% endfor %}
+                
+             </tbody>
+ 
+             <tfoot>
+                 <tr>
+                     <th colspan="4"></th>
+                     <th class="" colspan="">Total</th>
+                     <th>{{products|total_cart_price:request.session.cart|currency}}</th>
+                 </tr>
+             </tfoot>
+         </table>
+         <hr>
+         <div class="m-3 p-3">
+             <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-info border rounded  col-lg-3 float-right">Check out</a>
+         </div>
+    </div>
+ </div>
+ 
+ 
+ <!-- modal -->
+ 
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="exampleModalLabel">
+               Check Out Form
+           </h5>
+           <hr>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+           <div class="m-2 p-3">
+             <form action="" method="POST">
+                 {% csrf_token %}
+                 <div class="form-group">
+                   <label for="">Address</label>
+                   <input type="text" name="address" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                   
+                 </div>
+                 <div class="form-group">
+                     <label for="">Phone</label>
+                     <input type="text" name="phone" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                   </div>
+
+                   <div class="form-group">
+                    <label for="">Name of Patient</label>
+                    <input type="text" name="pname" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                    
+                  </div>
+
+                  <div class="form-group">
+                    <label for="">Name of Doctor</label>
+                    <input type="text" name="dname" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                    
+                  </div>
+
+                   <div class="form-group"></div>
+
+                   <select name="labtime" class="form-control">
+                    <option class="hidden" selected disabled>Lab Appointment Time Slot *</option>
+                    
+                    <option>08.00 - 09.00</option>
+                    <option>09:00 – 10:00</option>
+                    <option>10:00 – 11:00</option>
+                    <option>11:00 – 12:00</option>
+                    <option>12:00 – 13:00</option>
+                    <option>13:00 – 14:00</option>
+                    <option>14:00 – 15:00</option>
+                    <option>15:00 – 16:00</option>
+                    <option>16:00 – 17:00</option>
+                    <option>17:00 – 18:00</option>
+                    
+                </select>
+              </div>
+ 
+                   <a href="{% url 'checkout' %}" type="submit" class="btn float-right btn-outline-info col-lg-6" value="Check out">Check out</a>
+             </form>
+           </div>
+         </div>
+         
+       </div>
+     </div>
+   </div>
+ 
+ 
+ 
+ {% endblock %}

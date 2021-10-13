@@ -1,0 +1,99 @@
+{% extends 'health/basic.html' %}
+
+{% load static %}
+
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+
+
+
+{% block title %}Lab Orders{% endblock %}
+
+{% block body %}
+{% load cart %}
+{% load custom_filter %}
+
+
+<nav class="one-edge-shadow navbar navbar-expand-lg navbar-light" style="background-color: #35477d;height: 2rem;">
+ 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/patient/lab2" style="color: #ffffff; font-weight: bold; font-size: 15px;">AIM 2 CARE DIAGNOSTIC LAB</a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="/patient/orders" style="color: #ffffff; font-weight: 100; font-size: 15px;">Your Orders</a>
+      </li>
+  
+    </ul>
+  
+  
+    <ul class=" navbar-nav my-2 my-lg-0">
+      <li class="nav-item ">
+        
+        <a class="nav-link" href="/patient/cart" style="color: #ffffff;font-weight: 200;font-size: 15px;">Cart 
+          <span class="badge badge-info" style="background-color: #8396ff">{{request.session.cart.keys|length}}</span>
+          <span class="sr-only"  >(current)</span></a>
+      </li>
+      
+  
+    </ul>
+  </div>
+  </nav> 
+
+  <div class="container">
+    <div class="border rounded p-4 m-4">
+         <p class="display-4 pl-4 ml-4">Your Orders</p>
+         <hr>
+         <table class="table">
+             <thead>
+                 <tr>
+                     <th>Sno.</th>
+                     <th>Image</th>
+                     <th>Product</th>
+                     <th>Date</th>
+                     <th>Price</th>
+                     <th>Quantity</th>
+                     <th>Total</th>
+                     <th>Status</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 
+                 {% for order in orders %}
+                 <tr>
+                     <td>{{forloop.counter}}</td>
+                     <td><img style="height: 80px;" class="rounded-circle" src="{{order.product.image.url}}" alt=""></td>
+                     <td>{{order.product.name}}</td>
+                     <td>{{order.date}}</td>
+                     <td>{{order.price|currency}}</td>
+                     <td>{{order.quantity}}</td>
+                     <td>{{order.quantity|multiply:order.price|currency}}</td>
+                     {% if order.status %}
+                     <td><small class="badge badge-success">Completed</small></td>
+                     {%else%}
+                     <td><small class="badge badge-warning">Pending</small></td>
+                     {% endif %}
+                 </tr>
+ 
+                 {% endfor %}
+                
+             </tbody>
+ 
+         </table>
+        
+    </div>
+ </div>
+ 
+ 
+ 
+
+
+ 
+ 
+ {% endblock %}

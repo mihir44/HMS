@@ -1,5 +1,7 @@
 from django.db import models
 from account.models import Patient, Hospital,User
+import datetime
+
 # Create your models here
 class Patient_profile(models.Model):
     patient = models.OneToOneField(Patient, on_delete=models.CASCADE)
@@ -64,6 +66,10 @@ class Product(models.Model):
     image = models.ImageField(upload_to='uploads/products/')
 
     @staticmethod
+    def get_products_by_id(ids):
+        return Product.objects.filter(id__in =ids)
+
+    @staticmethod
     def get_all_products():
         return Product.objects.all()
 
@@ -77,6 +83,41 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+class Order(models.Model):
+    product = models.ForeignKey(Product,
+                                on_delete=models.CASCADE)
+    customer = models.ForeignKey(User,
+                                 on_delete=models.CASCADE)
+                                 
+    quantity = models.IntegerField(default=1)
+    price = models.IntegerField()
+    address = models.CharField(max_length=50, default='', blank=True)
+    phone = models.CharField(max_length=50, default='', blank=True)
+    pname = models.CharField(max_length=50, default='', blank=True)
+    dname = models.CharField(max_length=50, default='', blank=True)
+    labtime = (
+        ('08:00 – 09:00', '08:00 – 09:00'),
+        ('09:00 – 10:00', '09:00 – 10:00'),
+        ('10:00 – 11:00', '10:00 – 11:00'),
+        ('11:00 – 12:00', '11:00 – 12:00'),
+        ('12:00 – 13:00', '12:00 – 13:00'),
+        ('13:00 – 14:00', '13:00 – 14:00'),
+        ('14:00 – 15:00', '14:00 – 15:00'),
+        ('15:00 – 16:00', '15:00 – 16:00'),
+        ('16:00 – 17:00', '16:00 – 17:00'),
+        ('17:00 – 18:00', '17:00 – 18:00'),
+    )
+    labtime = models.CharField(max_length=25, choices=labtime, default="labtime")
+    date = models.DateField(default=datetime.datetime.today)
+    status = models.BooleanField(default=False)
+
+    def placeOrder(self):
+        self.save()
+
+    @staticmethod
+    def get_orders_by_customer(User):
+        return Order.objects.filter(customer=User).order_by('-date')
 
 
 

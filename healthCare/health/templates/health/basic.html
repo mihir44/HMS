@@ -120,36 +120,7 @@
 </div>
 
  
-<nav class="one-edge-shadow sticky-top navbar navbar-expand-lg navbar-light" style="background-color: #35477d;height: 2rem;">
-  
 
-
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-  <ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
-      <a class="nav-link" style="color: #ffffff; font-weight: 100;">AIM 2 CARE</a>
-    </li>
-
-  </ul>
-
-
-  <ul class=" navbar-nav my-2 my-lg-0">
-    <li class="nav-item ">
-      <a class="nav-link" href="/cart" style="color: #ffffff;font-weight: 200;">Cart 
-        <span class="badge badge-info" style="background-color: #8396ff">{{request.session.cart.keys|length}}</span>
-        <span class="sr-only"  >(current)</span></a>
-    </li>
-    {% if request.session.customer %}
-    
-    
-    {% else %}
-   
-    
-    {% endif %}
-
-  </ul>
-</div>
-</nav> 
 
   {% if messages %}
   {% for message in messages %}
@@ -168,14 +139,14 @@
   <!-- FOOTER> -->
 
   <!-- Footer -->
-<!-- <footer class="page-footer font-small special-color-dark pt-4" >
+ <footer class="page-footer font-small special-color-dark pt-4" >
  
   <div class="footer-copyright text-center py-3" style="background-color: #35477d;height: 55px;padding-top: rem;">
     <p style="color: #f4f6fa;font-weight: bold;" >© Aim2Care Copyright 2021</p>
   </div>
   
 
-</footer> -->
+</footer>
 <!-- Footer -->
   
 

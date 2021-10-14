@@ -11,6 +11,8 @@
       <thead>
         <tr>
           <th>Patient Name</th>
+          <th>Issue Name</th>
+          <th>Doctor Name</th>
           <th>Appointment Date</th>
           <th>Time Slot</th>
           <th>Status</th>
@@ -20,6 +22,8 @@
       {% for a in appointments %}
       <tr>
         <td>{{a.patient}}</td>
+        <td>{{a.coursecategory}}</td>
+        <td>{{a.coursetopic}}</td>
 <!--        <td> <img src="{% static p.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>-->
         <td>{{a.date}}</td>
 <!--        <td>{{p.mobile}}</td>-->

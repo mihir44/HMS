@@ -5,6 +5,7 @@ from .models import *
 from django.contrib import messages
 from .forms import EditPatientProfile, Patient_details, AppointmentForm
 from django.views import View
+from account.models import *
 
 
 # Create your views here.
@@ -108,11 +109,11 @@ class Cart(View):
 
 
 class CheckOut(View):
-    print("hello")
+    
     def post(self, request):
         address = request.POST.get('address')
         phone = request.POST.get('phone')
-        customer = request.session.get('customer')
+        customer = request.session.get('User')
         cart = request.session.get('cart')
         products = Product.get_products_by_id(list(cart.keys()))
         print(address, phone, customer, cart, products)

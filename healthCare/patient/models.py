@@ -77,7 +77,8 @@ class Appointment(models.Model):
             
         )
 
-        patient = models.ForeignKey(User, on_delete=models.CASCADE, related_name='patient')
+        # patient = models.ForeignKey(User, on_delete=models.CASCADE, related_name='patient')
+        patient = models.CharField(default="", max_length=50)
         hospital = models.ForeignKey(User, on_delete=models.CASCADE, related_name='doctor')
         coursecategory = models.CharField( choices=ISSUE_LIST,default="", max_length=50)
         coursetopic = models.CharField(choices=DOCTOR_LIST,default="", max_length=50)
@@ -131,8 +132,7 @@ class Product(models.Model):
 class Order(models.Model):
     product = models.ForeignKey(Product,
                                 on_delete=models.CASCADE)
-    customer = models.ForeignKey(User,
-                                 on_delete=models.CASCADE)
+    customer = models.CharField(max_length=50, default='', blank=True)
                                  
     quantity = models.IntegerField(default=1)
     price = models.IntegerField()
@@ -159,9 +159,9 @@ class Order(models.Model):
     def placeOrder(self):
         self.save()
 
-    @staticmethod
-    def get_orders_by_customer(User):
-        return Order.objects.filter(customer=User).order_by('-date')
+    # @staticmethod
+    # def get_orders_by_customer(user):
+    #     return Order.objects.filter(customer=user).order_by('-date')
 
 
 

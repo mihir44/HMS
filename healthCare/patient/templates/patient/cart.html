@@ -51,6 +51,7 @@
 <div class="container">
     <div class="border rounded p-4 m-4">
          <p class="display-4 pl-4 ml-4">Your Cart</p>
+         <p style="color: black; font-weight: 300;">All tests are done my experts at Aim2Care Laboratory. The reports will be delivered to you vial email within the next 24-64 hours depending on the type of test. Aim2Care believes in gaining customer trusts hence we accept only COD UPI  or card payment when our executive comes to take the medical sample.</p>
          <hr>
          <table class="table">
              <thead>
@@ -126,7 +127,7 @@
 
                    <div class="form-group">
                     <label for="">Name of Patient</label>
-                    <input type="text" name="pname" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                    <input type="text" name="pname" id="" value="{{user.username}}" class="form-control" placeholder="" aria-describedby="helpId">
                     
                   </div>
 
@@ -155,8 +156,12 @@
                 </select>
               </div>
  
-              <input type="submit" class="btn float-right btn-outline-info col-lg-6" value="Check out">
+              <input type="submit"  class="btn float-right btn-outline-info col-lg-6" value="Check out">
              </form>
+             <div id="form-message-warning mt-4"></div>
+          <div id="form-message-success">
+            Lab Appointment Booked. Check 'Your Orders' for updates. 
+          </div>
            </div>
          </div>
          

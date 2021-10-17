@@ -5,7 +5,8 @@ from .models import Patient_profile, Appointment, Category, Product, Order
 from django.contrib import messages
 from .forms import EditPatientProfile, Patient_details, AppointmentForm
 from django.views import View
-from account.models import User
+
+from account.models import User, Patient
 
 
 # Create your views here.
@@ -34,7 +35,9 @@ def appointment(request):
             messages.success(request, 'Aim2Care booked your appointment! Check status in View History')
             return redirect('appointment')
     else:
-        form = AppointmentForm()
+        initial={'patient':request.user.username}
+        print(initial)
+        form = AppointmentForm(initial=initial)
     return render(request, 'patient/appointment.html', {'form': form})
 
 def patient_appointment_list(request):
@@ -109,31 +112,42 @@ class Cart(View):
 
 
 class CheckOut(View):
+    # form_class= OrderForm
+
+    # def form_valid(self,form):
+    #     form.send_cust()
+    #     return super().form_valid(form)
     
     def post(self, request):
         address = request.POST.get('address')
         phone = request.POST.get('phone')
-        customer = request.session.get('User')
+        customer = request.POST.get('pname')
+        
         cart = request.session.get('cart')
         products = Product.get_products_by_id(list(cart.keys()))
         print(address, phone, customer, cart, products)
 
         for product in products:
             print(cart.get(str(product.id)))
-            order = Order(customer=User(id=customer),
+            order = Order(customer=customer,
                           product=product,
                           price=product.price,
                           address=address,
                           phone=phone,
                           quantity=cart.get(str(product.id)))
             order.save()
+            messages.success(request, 'Aim2Care Lab Appointment Booked. Check Your Orders for updates. ')
         request.session['cart'] = {}
 
         return redirect('cart')
 
 class OrderView(View):
     def get(self , request ):
-        customer = request.session.get('customer')
-        orders = Order.get_orders_by_customer(customer)
+
+        orders = Order.objects.filter(customer=request.user)
         print(orders)
+    
+        # customer = request.session.get('customer')
+        # orders = Order.get_orders_by_customer(customer)
+        # print(orders)
         return render(request , 'patient/orders.html'  , {'orders' : orders})

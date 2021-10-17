@@ -1,11 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render,redirect, reverse
 from django.contrib.auth.forms import UserChangeForm
-from .models import *
+from .models import Patient_profile, Appointment, Category, Product, Order
 from django.contrib import messages
 from .forms import EditPatientProfile, Patient_details, AppointmentForm
 from django.views import View
-from account.models import *
+from account.models import User
 
 
 # Create your views here.

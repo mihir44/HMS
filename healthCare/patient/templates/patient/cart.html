@@ -112,7 +112,7 @@
          </div>
          <div class="modal-body">
            <div class="m-2 p-3">
-             <form action="" method="POST">
+             <form action="checkout" method="POST">
                  {% csrf_token %}
                  <div class="form-group">
                    <label for="">Address</label>
@@ -155,7 +155,7 @@
                 </select>
               </div>
  
-                   <a href="{% url 'checkout' %}" type="submit" class="btn float-right btn-outline-info col-lg-6" value="Check out">Check out</a>
+              <input type="submit" class="btn float-right btn-outline-info col-lg-6" value="Check out">
              </form>
            </div>
          </div>

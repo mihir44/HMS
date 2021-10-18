@@ -4,10 +4,11 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.mail import send_mail, EmailMessage
 from django.contrib.auth.decorators import login_required
-from .models import Contact
-
+from .models import Contact, Emergency
+from .forms import EmergencyForm
+from django.views import View
 from django.contrib import messages
-from django.contrib.auth import authenticate,login, logout
+
 
 # Create your views here.
 def index(request):
@@ -45,4 +46,21 @@ def signlog(request):
     return render(request, 'health/signlog.html')
 
 
-    
+def emergencyhosp(request):
+    return render(request, 'health/emergencyhosp.html')
+
+
+
+def emergency(request):
+    if request.method == 'POST':
+        form = EmergencyForm(request.POST)
+        if form.is_valid():
+            Emergency = form.save(commit=False)
+            Emergency.save()
+            messages.success(request, 'Emergency Request Done!')
+            return redirect('emergency')
+    else:
+        initial={'patient':request.user.username}
+        print(initial)
+        form = EmergencyForm(initial=initial)
+    return render(request, 'health/emergency.html', {'form': form})

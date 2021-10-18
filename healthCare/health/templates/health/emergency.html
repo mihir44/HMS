@@ -1,0 +1,27 @@
+{% extends 'health/basic.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Book Emergency{% endblock %}
+{% block body %}
+<div class="container">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form | crispy}}
+        <!--    {% crispy form %}-->
+        <div class="row">
+            <div class="col-xs-6 mx-3 form-group">
+                <input type="submit" value="Send Message" class="btn btn-primary rounded-0 py-2 px-4">
+                <span class="submitting"></span>
+                
+            </div>
+            
+        </div>
+    </form>
+     <div id="form-message-warning mt-4"></div>
+          <div id="form-message-success">
+            Your message was sent, thank you!
+          </div>
+</div>
+
+
+{% endblock %}

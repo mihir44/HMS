@@ -81,7 +81,7 @@
               <li class="{% if url_name == 'appointment'%}active {% endif %}"><a href="{% url 'appointment' %}"><span>Appointments</span></a></li>
               <li class="{% if url_name == 'labtest'%}active {% endif %}"><a href="{% url 'lab1' %}"><span>Lab Tests</span></a>
               </li>
-              <li class="{% if url_name == 'emergency'%}active {% endif %}"><a href="blog.html"><span>Emergency</span></a></li>
+              <li class="{% if url_name == 'emergencyhosp'%}active {% endif %}"><a href="{% url 'emergencyhosp' %}"><span>Emergency</span></a></li>
               {% if user.is_authenticated and user.is_patient %}
               <li class="{% if url_name == 'patient_profile'%}active {% endif %}"><a href="{% url 'patient_profile' %}">Hello, {{user.username}}</a></li>
               <li><a href="{% url 'logout' %}">Logout</a></li>

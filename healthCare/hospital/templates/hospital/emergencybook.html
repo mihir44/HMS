@@ -1,0 +1,42 @@
+{% extends 'health/basic.html' %}
+{% block title %}Home{% endblock %}
+{% block body %}
+{% load static %}
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Your Emergency Booking</h6>
+    </div>
+    <table class="table table-hover"  id="appointment">
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Issue Name</th>
+          <th>Email</th>
+          <th>Phone No</th>
+          <th>Blood</th>
+          <th>Requirement</th>
+          <th>Medication</th>
+          <th>Allergy</th>
+          
+        </tr>
+      </thead>
+      {% for e in emergency %}
+      <tr>
+        <td>{{e.pname}}</td>
+        <td>{{e.issue}}</td>
+        <td>{{e.email}}</td>
+<!--        <td> <img src="{% static p.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>-->
+        <td>{{e.phone}}</td>
+<!--        <td>{{p.mobile}}</td>-->
+        <td>{{e.bloodgroup}}</td>
+        <td>{{e.requirement}}</td>
+        <td>{{e.medicine}}</td>
+        <td>{{e.allergy}}</td>
+        
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock %}

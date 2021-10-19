@@ -1,13 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render,redirect,reverse
-from django.contrib.auth.forms import UserChangeForm
-from django.views.generic import ListView
 from health.models import Emergency
-from patient.forms import AppointmentForm
-from patient import views as p_view
-from .forms import EditPatientProfile
-from account.models import Patient, User, Hospital
+from .forms import EditPatientProfile,DoctorsForm
 from patient.models import Appointment
+from .models import Doctor
+
 
 # Create your views here.
 def index(request):
@@ -36,24 +33,31 @@ def hospital_delete_appointment(request, pk):
     appointment.delete()
     return redirect('doctor-view-appointment')
 
+def doctor_add_view(request):
+    if request.method == 'POST':
+        form = DoctorsForm(request.POST,request.FILES)
+        if form.is_valid():
+            doctor = form.save(commit=False)
+            doctor.save()
+            # messages.success(request, 'Aim2Care booked your appointment! Check status in View History')
+            return redirect('hospital_home')
+    else:
+        initial={'hospital':request.user.username}
+        form = DoctorsForm(initial=initial)
+    return render(request, 'hospital/doctorAdd.html', {'form': form})
 
+def doctor_list_view(request):
+    doctor = Doctor.objects.filter(hospital=request.user)
+    return render(request, 'hospital/doctorList.html', {'doctor': doctor})
 
-
+def hospital_delete_doctor(request, pk):
+    doctor = Doctor.objects.get(id=pk)
+    doctor.delete()
+    return redirect('doctor_list')
 # EMERGENCY
 
 def hospital_view_emergency(request):
     emergency = Emergency.objects.filter(hospitalsname=request.user)
     return render(request, 'hospital/emergencybook.html', {'emergency': emergency})
 
-# def hospital_approve_emergency(request,pk):
-#     emergency = Emergency.objects.get(id=pk)
-#     emergency.status = True
-#     emergency.save()
-#     return redirect(reverse('dname-view-emergency'))
-
-
-# def hospital_delete_emergency(request, pk):
-#     emergency = Emergency.objects.get(id=pk)
-#     emergency.delete()
-#     return redirect('dname-view-emergency')
 

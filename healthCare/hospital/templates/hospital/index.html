@@ -6,9 +6,6 @@
 <style>
 	
   /* SIGNUP LOGIN */
-  
-  
-    
     .weather-card {
       margin: 60px auto;
       height: 400px;
@@ -192,9 +189,58 @@
 							<a href="#"><span class="lnr lnr-chevron-left"></span></a>
 							<a href="#"><span class="lnr lnr-cog"></span></a>
 						</div>
-						<h1 class="heading">Check your todays appointments</h1>
+						<h1 class="heading">Add a doctor</h1>
 						
 				
+					</div>
+				</div>
+				<div class="bottom">
+					<div class="wrapper">
+						<ul class="forecast">
+							<a href="{% url 'doctor_add' %}"><button class="submit-btn" type="submit">Add</button></a>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col">
+			<div class="weather-card rain">
+				<div class="top">
+					<div class="wrapper">
+						<div class="mynav">
+							<a href="#"><span class="lnr lnr-chevron-left"></span></a>
+							<a href="#"><span class="lnr lnr-cog"></span></a>
+						</div>
+						<h1 class="heading">Manage and view doctors</h1>
+						
+						
+					</div>
+				</div>
+				<div class="bottom">
+					<div class="wrapper">
+						<ul class="forecast">
+							<a href="{% url 'doctor_list' %}"><button class="submit-btn" type="submit">View list</button></a>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<div class="weather-card one">
+
+				<div class="top">
+					<div class="wrapper">
+						<div class="mynav">
+							<a href="#"><span class="lnr lnr-chevron-left"></span></a>
+							<a href="#"><span class="lnr lnr-cog"></span></a>
+						</div>
+						<h1 class="heading">Check your todays appointments</h1>
+
+
 					</div>
 				</div>
 				<div class="bottom">
@@ -216,8 +262,8 @@
 							<a href="#"><span class="lnr lnr-cog"></span></a>
 						</div>
 						<h1 class="heading">Emergency Updates</h1>
-						
-						
+
+
 					</div>
 				</div>
 				<div class="bottom">
@@ -230,38 +276,8 @@
 			</div>
 		</div>
 	</div>
+
 </div>
 
-
-  <!-- <div class="container">
-    <div class="row">
-      <div class="col-md-4 col-xl-6">
-        <div class="card bg-c-blue order-card">
-          <div class="card-block">
-            <a href="{% url 'doctor-view-appointment' %}">
-              <h6 class="m-b-20">View Your Appointment</h6>
-            </a>
-            <br>
-            <h2 class="text-right"><i class="fas fa-calendar f-left"></i></h2>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-xl-6">
-        <div class="card bg-c-green order-card">
-          <div class="card-block">
-            <a href="/doctor-delete-appointment">
-              <h6 class="m-b-20">Delete Appointment</h6>
-            </a>
-            <br>
-            <h2 class="text-right"><i class="fas fa-eject f-left"></i></h2>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-  </div> -->
 
 {% endblock %}

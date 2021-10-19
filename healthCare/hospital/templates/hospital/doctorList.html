@@ -1,0 +1,38 @@
+{% extends 'health/basic.html' %}
+{% block title %}Home{% endblock %}
+{% block body %}
+{% load static %}
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Your Appointments</h6>
+    </div>
+    <table class="table table-hover"  id="appointment">
+      <thead>
+        <tr>
+          <th>Profile Pic</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Age</th>
+          <th>Years of experience</th>
+          <th>Degree</th>
+          <th>Gender</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      {% for i in doctor %}
+      <tr>
+        <td><img src="{{i.profile_pic.url}}" height="70px" width="70px"></td>
+        <td>{{i.first_name}}</td>
+        <td>{{i.last_name}}</td>
+        <td>{{i.age}}</td>
+        <td>{{i.year_of_experience}}</td>
+        <td>{{i.degree}}</td>
+        <td>{{i.gender}}</td>
+        <td><a href="{% url 'doctor-delete' i.id %}" class="btn btn-danger">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock %}

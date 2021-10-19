@@ -34,6 +34,7 @@ class AppointmentForm(forms.ModelForm):
         super(AppointmentForm, self).__init__(*args, **kwargs)
         # self.fields['patient'].queryset = User.objects.filter(is_patient = True)
         self.fields['hospital'].queryset = User.objects.filter(is_hospital = True)
+        # self.fields['hospital'].value = "Select Hospital"
         self.fields["coursecategory"].label = "Select Issue"
         self.fields["coursetopic"].label = "Select Doctor"
         self.fields["date"].label = "Date (YYYY-MM-DD)"

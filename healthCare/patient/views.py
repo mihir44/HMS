@@ -33,16 +33,14 @@ def appointment(request):
             appointment = form.save(commit=False)
             appointment.save()
             messages.success(request, 'Aim2Care booked your appointment! Check status in View History')
-            return redirect('appointment')
+            return redirect('hospital_home')
     else:
         initial={'patient':request.user.username}
-        print(initial)
         form = AppointmentForm(initial=initial)
     return render(request, 'patient/appointment.html', {'form': form})
 
 def patient_appointment_list(request):
     appointments = Appointment.objects.filter(patient=request.user)
-    print(appointments)
     return render(request, 'patient/appointment_list.html', {'appointments': appointments})
 
 def patient_withdraw_appointment(request, pk):
@@ -79,7 +77,6 @@ class lab2(View):
             cart[product] = 1
 
         request.session['cart'] = cart
-        print('cart' , request.session['cart'])
         return redirect('lab2')
         
     def get(self, request):
@@ -112,12 +109,6 @@ class Cart(View):
 
 
 class CheckOut(View):
-    # form_class= OrderForm
-
-    # def form_valid(self,form):
-    #     form.send_cust()
-    #     return super().form_valid(form)
-    
     def post(self, request):
         address = request.POST.get('address')
         phone = request.POST.get('phone')
@@ -125,10 +116,8 @@ class CheckOut(View):
         
         cart = request.session.get('cart')
         products = Product.get_products_by_id(list(cart.keys()))
-        print(address, phone, customer, cart, products)
 
         for product in products:
-            print(cart.get(str(product.id)))
             order = Order(customer=customer,
                           product=product,
                           price=product.price,

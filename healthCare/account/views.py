@@ -114,6 +114,7 @@ def hlogin(request):
 
         # hospital = auth.authenticate(email=email, password=password, is_hospital = True)
         hospital = auth.authenticate(username=username, password=password, is_hospital = True)
+        print(hospital)
         if hospital is not None:
             auth.login(request, hospital)
             return redirect("/hospital")

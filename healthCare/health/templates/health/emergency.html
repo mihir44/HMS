@@ -7,7 +7,6 @@
     <form action="" method="post">
         {% csrf_token %}
         {{form | crispy}}
-        <!--    {% crispy form %}-->
         <div class="row">
             <div class="col-xs-6 mx-3 form-group">
                 <input type="submit" value="Send Message" class="btn btn-primary rounded-0 py-2 px-4">

@@ -1,6 +1,12 @@
 from django.db import models
 from account.models import Patient, Hospital,User
 import datetime
+from django.utils import timezone
+from django.core.exceptions import ValidationError
+
+def validate_date(date):
+    if date < timezone.now().date():
+        raise ValidationError("Date cannot be in the past")
 
 # Create your models here
 class Patient_profile(models.Model):
@@ -82,7 +88,7 @@ class Appointment(models.Model):
         hospital = models.ForeignKey(User, on_delete=models.CASCADE, related_name='doctor')
         coursecategory = models.CharField( choices=ISSUE_LIST,default="", max_length=50)
         coursetopic = models.CharField(choices=DOCTOR_LIST,default="", max_length=50)
-        date = models.DateField()
+        date = models.DateField(null=True, blank=True, default=None, validators=[validate_date])
         timeslot = models.CharField(choices=TIMESLOT_LIST, default="", max_length=25)
         status = models.BooleanField(default=False)
 

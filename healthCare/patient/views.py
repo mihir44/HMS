@@ -5,6 +5,7 @@ from .models import Patient_profile, Appointment, Category, Product, Order
 from django.contrib import messages
 from .forms import EditPatientProfile, Patient_details, AppointmentForm
 from django.views import View
+from hospital.models import Doctor
 
 from account.models import User, Patient
 
@@ -47,6 +48,15 @@ def patient_withdraw_appointment(request, pk):
     appointment = Appointment.objects.get(id=pk)
     appointment.delete()
     return redirect('patient-view-appointment')
+
+def doctor_list(request):
+    if request.method == 'GET':
+        hospital = request.GET.get('feature')
+        doctor = Doctor.objects.filter(hospital=hospital)
+        print(hospital)
+    else:
+        doctor = Doctor.objects.all()
+    return render(request, 'patient/doctor_list.html', {'doctor':doctor})
 
 
 @login_required(login_url='signlog')
@@ -132,11 +142,5 @@ class CheckOut(View):
 
 class OrderView(View):
     def get(self , request ):
-
         orders = Order.objects.filter(customer=request.user)
-        print(orders)
-    
-        # customer = request.session.get('customer')
-        # orders = Order.get_orders_by_customer(customer)
-        # print(orders)
         return render(request , 'patient/orders.html'  , {'orders' : orders})

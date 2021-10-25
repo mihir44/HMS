@@ -11,7 +11,7 @@ urlpatterns = [
     path('pappointment', views.patient_appointment_list, name='patient-view-appointment'),
     path('pappointment_delete/<int:pk>', views.patient_withdraw_appointment, name='patient_withdraw_appointment'),
     path('lab1', views.lab1, name='lab1'),
-
+    path('doctor_list', views.doctor_list, name='patient_doctor_view'),
     path('lab2', lab2.as_view(), name='lab2'),
     path('cart', Cart.as_view(), name='cart'),
     path('checkout', CheckOut.as_view() , name='checkout'),

@@ -85,7 +85,7 @@
               {% else %}
               <li class="{% if url_name == 'appointment'%}active {% endif %}"><a href="{% url 'appointment' %}"><span>Appointments</span></a></li>
               {% endif %}
-              <li class="{% if url_name == 'labtest'%}active {% endif %}"><a href="{% url 'lab1' %}"><span>Lab Tests</span></a>
+              <li class="{% if url_name == 'labtest'%}active {% endif %}"><a href="{% url 'lab1' %}", hidden><span>Lab Tests</span></a>
               </li>
               {% if user.is_patient %}
                <li class="{% if url_name == 'emergencyhosp'%}active {% endif %}"><a href="{% url 'emergencyhosp' %}"><span>Emergency</span></a></li>

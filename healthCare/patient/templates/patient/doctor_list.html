@@ -1,5 +1,5 @@
 {% extends 'health/basic.html' %}
-{% block title %}Home{% endblock %}
+{% block title %}Doctor's list{% endblock %}
 {% block body %}
 {% load static %}
 <style>
@@ -13,14 +13,14 @@
 <div class="container">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <h6 class="panel-title">Your Appointments</h6>
+      <h6 class="panel-title">Doctor's list</h6>
     </div>
     <form action="" method="get">
-      <label for="featured">Hospital</label>
-      <select name="featured">
+      <label for="hospitals">Hospital</label>
+      <select id="hospitals" name="hospitals_name">
         <option>Select Hospital</option>
         {% for i in doctor %}
-          <option>{{i.hospital}}</option>
+          <option >{{i.hospital}}</option>
         {% endfor %}
       </select>
       <input class="btn-primary" type="submit" name="featured" value="Filter" />

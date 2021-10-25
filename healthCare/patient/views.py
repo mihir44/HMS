@@ -1,15 +1,10 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render,redirect, reverse
-from django.contrib.auth.forms import UserChangeForm
-from .models import Patient_profile, Appointment, Category, Product, Order
+from django.shortcuts import render,redirect
+from .models import Appointment, Category, Product, Order
 from django.contrib import messages
 from .forms import EditPatientProfile, Patient_details, AppointmentForm
 from django.views import View
 from hospital.models import Doctor
-
-from account.models import User, Patient
-
-
 # Create your views here.
 
 @login_required(login_url='signlog')
@@ -50,10 +45,9 @@ def patient_withdraw_appointment(request, pk):
     return redirect('patient-view-appointment')
 
 def doctor_list(request):
-    if request.method == 'GET':
-        hospital = request.GET.get('feature')
+    hospital = request.GET.get('hospitals_name')
+    if request.GET.get('hospitals_name'):
         doctor = Doctor.objects.filter(hospital=hospital)
-        print(hospital)
     else:
         doctor = Doctor.objects.all()
     return render(request, 'patient/doctor_list.html', {'doctor':doctor})
@@ -112,7 +106,6 @@ class lab2(View):
 class Cart(View):
     def get(self, request):
         ids = list(request.session.get('cart').keys())
-        print(ids)
         products = Product.get_products_by_id(ids)
         return render(request, 'patient/cart.html', {'products' : products})
 

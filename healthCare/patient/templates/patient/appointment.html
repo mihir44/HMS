@@ -4,6 +4,7 @@
 {% block title %}Home{% endblock %}
 {% block body %}
 <div class="container">
+    <a href="{% url 'patient_doctor_view' %}">View Doctors</a>
     <form action="" method="post">
         {% csrf_token %}
         {{form | crispy}}

@@ -21,11 +21,11 @@ class EmergencyForm(forms.ModelForm):
         self.fields["pname"].label = "Patient's Name"
         self.fields['hospitalsname'].queryset = User.objects.filter(is_hospital = True)
         self.fields["issue"].label = "Select Issue"
-        self.fields["email"].label = "Enter Email ID"
+        # self.fields["email"].label = "Enter Email ID"
         self.fields["phone"].label = "Enter Phone"
         self.fields["requirement"].label = "What does the Patient need"
-        self.fields["bloodgroup"].label = "Blood Group"
-        self.fields["address"].label = "Address"
+        # self.fields["bloodgroup"].label = "Blood Group"
+        # self.fields["address"].label = "Address"
         self.fields["medicine"].label = "Is Patient on any medications"
         self.fields["allergy"].label = "Does Patient have any allergy"
         

@@ -24,13 +24,13 @@ def contact(request):
         category = request.POST.get('category','')
         contact = Contact(name = name, email = email, category = category, message = message, phone = phone)
         contact.save()
-        # email = EmailMessage()
-        # send_mail(
-        #     category, # subject
-        #     message, # message
-        #     email, # from email
-        #     ['aim2care29@gmail.com'], # to email
-        # )
+        email = EmailMessage()
+        send_mail(
+            category, # subject
+            message, # message
+            email, # from email
+            ['aim2care29@gmail.com'], # to email
+        )
         messages.success(request, 'Message Sent! Aim2Care will contact you soon')
     return render(request,'health/contact.html')
 

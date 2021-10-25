@@ -3,6 +3,7 @@ from django.shortcuts import render,redirect,reverse
 from health.models import Emergency
 from .forms import EditPatientProfile,DoctorsForm
 from patient.models import Appointment
+from django.contrib import messages
 from .models import Doctor
 
 
@@ -39,7 +40,7 @@ def doctor_add_view(request):
         if form.is_valid():
             doctor = form.save(commit=False)
             doctor.save()
-            # messages.success(request, 'Aim2Care booked your appointment! Check status in View History')
+            messages.success(request, 'Doctor details added successfully')
             return redirect('hospital_home')
     else:
         initial={'hospital':request.user.username}

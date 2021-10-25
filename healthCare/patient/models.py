@@ -54,33 +54,27 @@ class Appointment(models.Model):
             ('Dr. Abhishek Wadkar - Routine Checkup', 'Dr. Abhishek Wadkar - Routine Checkup'),
             ('Dr. Meheka Sheikh - Routine Checkup', 'Dr. Meheka Sheikh - Routine Checkup'),
             ('Dr. Arvind Sagota - Routine Checkup', 'Dr. Arvind Sagota - Routine Checkup'),
-            ('Dr. Meenal Shah - Routine Checkup', 'Dr. Meenal Shah - Routine Checkup'),
-            ('Dr. Adrik Kaif - Routine Checkup', 'Dr. Adrik Kaif - Routine Checkup'),
+            
 
             ('Dr. Manpreet Singh - Major Health Issues', 'Dr. Manpreet Singh - Major Health Issues'),
             ('Dr. Jay Sarkar - Major Health Issues', 'Dr. Jay Sarkar - Major Health Issues'),
             ('Dr. Aisha Manila - Major Health Issues', 'Dr. Aisha Manila - Major Health Issues'),
-            ('Dr. Ketan Jha - Major Health Issues', 'Dr. Ketan Jha - Major Health Issues'),
-            ('Dr. Murkh Injam - Major Health Issues', 'Dr. Murkh Injam - Major Health Issues'),
+           
             
             ('Dr. Ashwin Mehta - Joint Muscle Issues', 'Dr. Ashwin Mehta - Joint Muscle Issues'),
             ('Dr. Keith Sequira - Joint Muscle Issues', 'Dr. Keith Sequira - Joint Muscle Issues'),
             ('Dr. Camil Dcruz - Joint Muscle Issues', 'Dr. Camil Dcruz - Joint Muscle Issues'),
-            ('Dr. Jaya Deshmukh - Joint Muscle Issues', 'Dr. Jaya Deshmukh - Joint Muscle Issues'),
-            ('Dr. Mandira Chopda - Joint Muscle Issues', 'Dr. Mandira Chopda - Joint Muscle Issues'),
+            
 
             ('Dr. Aksa Pradhan - Hormonal Imbalance', 'Dr. Aksa Pradhan - Hormonal Imbalance'),
             ('Dr. Hritika Doshi - Hormonal Imbalance', 'Dr. Hritika Doshi - Hormonal Imbalance'),
             ('Dr. Misha mishra - Hormonal Imbalance', 'Dr. Misha mishra - Hormonal Imbalance'),
-            ('Dr. Meetal Manoja - Hormonal Imbalance', 'Dr. Meetal Manoja - Hormonal Imbalance'),
-            ('Dr. Akash Wadvani - Hormonal Imbalance', 'Dr. Akash Wadvani - Hormonal Imbalance'),
+          
 
             ('Dr. Prem Singhania - Infections and rashes', 'Dr. Prem Singhania - Infections and rashes'),
             ('Dr. Kabeer Hongal - Infections and rashes', 'Dr. Kabeer Hongal - Infections and rashes'),
             ('Dr. Priya Narwande - Infections and rashes', 'Dr. Priya Narwande - Infections and rashes'),
-            ('Dr. Lalita Sangikar - Infections and rashes', 'Dr. Lalita Sangikar - Infections and rashes'),
-            ('Dr. Aditi Surekh - Infections and rashes', 'Dr. Aditi Surekh - Infections and rashes'),
-            
+                     
         )
 
         # patient = models.ForeignKey(User, on_delete=models.CASCADE, related_name='patient')

@@ -29,7 +29,7 @@ def appointment(request):
             appointment = form.save(commit=False)
             appointment.save()
             messages.success(request, 'Aim2Care booked your appointment! Check status in View History')
-            return redirect('hospital_home')
+            return redirect('patient-view-appointment')
     else:
         initial={'patient':request.user.username}
         form = AppointmentForm(initial=initial)

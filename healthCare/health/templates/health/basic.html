@@ -74,7 +74,13 @@
 
             <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
               {% with url_name=request.resolver_match.url_name %}
+              {% if user.is_patient %}
+              <li class="{% if url_name == 'home'%}active {% endif %}"><a href="{% url 'patient_home' %}"><span>Home</span></a></li>
+              {% elif user.is_hospital %}
+              <li class="{% if url_name == 'home'%}active {% endif %}"><a href="{% url 'hospital_home' %}"><span>Home</span></a></li>
+              {% else %}
               <li class="{% if url_name == 'home'%}active {% endif %}"><a href="/"><span>Home</span></a></li>
+              {% endif %}
               <li class="{% if url_name == 'about'%}active {% endif %}"><a href="{% url 'about' %}"><span>About</span></a></li>
               <li class="{% if url_name == 'contact'%}active {% endif %}"><a href="{% url 'contact' %}"><span>Contact</span></a>
               </li>

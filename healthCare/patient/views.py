@@ -5,7 +5,6 @@ from django.contrib import messages
 from .forms import EditPatientProfile, Patient_details, AppointmentForm
 from django.views import View
 from hospital.models import Doctor
-# Create your views here.
 
 @login_required(login_url='signlog')
 def index(request):
@@ -35,15 +34,18 @@ def appointment(request):
         form = AppointmentForm(initial=initial)
     return render(request, 'patient/appointment.html', {'form': form})
 
+@login_required(login_url='signlog')
 def patient_appointment_list(request):
     appointments = Appointment.objects.filter(patient=request.user)
     return render(request, 'patient/appointment_list.html', {'appointments': appointments})
 
+@login_required(login_url='signlog')
 def patient_withdraw_appointment(request, pk):
     appointment = Appointment.objects.get(id=pk)
     appointment.delete()
     return redirect('patient-view-appointment')
 
+@login_required(login_url='signlog')
 def doctor_list(request):
     hospital = request.GET.get('hospitals_name')
     if request.GET.get('hospitals_name'):
@@ -57,7 +59,7 @@ def doctor_list(request):
 def lab1(request):
     return render(request, 'patient/lab1.html')
 
-
+# @login_required(login_url='signlog')
 class lab2(View):
     def post(self, request):
         product= request.POST.get('product')
@@ -102,7 +104,7 @@ class lab2(View):
 
         return render(request ,'patient/lab2.html', data)
 
-
+# @login_required(login_url='signlog')
 class Cart(View):
     def get(self, request):
         ids = list(request.session.get('cart').keys())
@@ -110,7 +112,7 @@ class Cart(View):
         return render(request, 'patient/cart.html', {'products' : products})
 
 
-
+# @login_required(login_url='signlog')
 class CheckOut(View):
     def post(self, request):
         address = request.POST.get('address')
@@ -133,6 +135,7 @@ class CheckOut(View):
 
         return redirect('cart')
 
+# @login_required(login_url='signlog')
 class OrderView(View):
     def get(self , request ):
         orders = Order.objects.filter(customer=request.user)

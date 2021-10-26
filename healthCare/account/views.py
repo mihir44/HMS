@@ -3,6 +3,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from .models import User,Patient,Hospital
 from .decoraters import unauthenticated_user
+from django.contrib.auth.models import Group
 
 # Create your views here.
 
@@ -39,6 +40,7 @@ def pregister(request):
                 patient = Patient.objects.create(user=user_name, mobile=mobile, gender=gender, address=address,location=location,
                                                  pincode=pincode, dob=dob, history=history, marital_status=status)
                 patient.save()
+
                 return redirect('plogin')
         else:
             messages.info(request, 'password not matching..')

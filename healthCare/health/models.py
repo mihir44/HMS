@@ -3,7 +3,6 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from account.models import User
 
-# Create your models here.
 class Contact(models.Model):
     contact_id = models.AutoField
     name = models.CharField( max_length=50)
